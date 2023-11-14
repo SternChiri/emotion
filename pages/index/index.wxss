@@ -10,7 +10,7 @@
   height: 350rpx;
   border-radius: 20rpx;
   padding: 20rpx;
-  margin-bottom: 50rpx;
+  margin-bottom: 40rpx;
   border: 1rpx solid #ddd;
   box-shadow: 0rpx 2rpx 4rpx rgba(0, 0, 0, 0.1);
   position: relative;
@@ -52,25 +52,20 @@
 
 .sub-card {
   background-color: #fff;
-  border-radius:20rpx;
-  padding: 30rpx;
+  border-radius:25rpx;
   width: 48%;
+  height: 320rpx;
   box-sizing: border-box;
-  border: 1rpx solid #ddd;
-  box-shadow: 0rpx 2rpx 4rpx rgba(0, 0, 0, 0.1);
+  border: 2rpx solid #ddd;
+  box-shadow: 0rpx 4rpx 8rpx rgba(0, 0, 0, 0.1);
   position: relative;
-}
-
-.icon {
-  width: 100rpx;
-  height: 100rpx;
 }
 
 .name {
   margin-top: 20rpx;
   font-size: 60rpx;
   font-weight: bold;
-  color: #333;
+  color: #333333;
   position: absolute;
   bottom: 30rpx;
   right: 30rpx;

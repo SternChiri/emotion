@@ -15,15 +15,13 @@
   <!-- 功能卡片 -->
   <view class="function-card">
     <!-- 心理测评 -->
-    <view class="sub-card">
-      <image class="icon" src="/images/assessment-icon.png"></image>
+    <image class="sub-card" src="/pics/scale.png">
       <view class="name">心理测评</view>
-    </view>
+    </image>
 
     <!-- 情绪调适 -->
-    <view class="sub-card">
-      <image class="icon" src="/images/emotion-icon.png"></image>
+    <image class="sub-card" src="/pics/heart.png">
       <view class="name">情绪调适</view>
-    </view>
+    </image>
   </view>
 </view>
