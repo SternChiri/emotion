@@ -1,19 +1,82 @@
-/**index.wxss**/
-.userinfo {
+/* index.wxss */
+
+.container {
+  padding: 30rpx;
+}
+
+.mood-card {
+  background-color: rgb(255, 255, 255);
+  width: 92%;
+  height: 350rpx;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  margin-bottom: 50rpx;
+  border: 1rpx solid #ddd;
+  box-shadow: 0rpx 2rpx 4rpx rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.date {
+  font-size: 28rpx;
+  color: #555555;
+  white-space: pre-line;
+}
+
+.mood-content {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  color: #aaa;
+  height: 230rpx;
 }
 
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.mood-text {
+  font-size: 40rpx;
+  color: #333333;
 }
 
-.usermotto {
-  margin-top: 200px;
+.detail-btn {
+  font-size: 40rpx;
+  color: #007aff;
+  position: absolute;
+  top: 15rpx;
+  right: 20rpx;
+}
+
+.function-card {
+  display: flex;
+  justify-content: space-between;
+  width: 98%;
+  height: 320rpx;
+}
+
+.sub-card {
+  background-color: #fff;
+  border-radius:20rpx;
+  padding: 30rpx;
+  width: 48%;
+  box-sizing: border-box;
+  border: 1rpx solid #ddd;
+  box-shadow: 0rpx 2rpx 4rpx rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.icon {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.name {
+  margin-top: 20rpx;
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #333;
+  position: absolute;
+  bottom: 30rpx;
+  right: 30rpx;
+}
+
+.line {
+  border-top: 5rpx solid #ddd; 
+  width: 98%;
+  margin: 10rpx 0; 
 }
