@@ -39,7 +39,7 @@
     <image class="article-image" src="/pics/mental.png"></image>
     <view class="article-info">
       <view class="article-name">关于心理健康</view>
-      <view class="article-detail">一种积极向上的状态</view>
+      <view class="article-detail">一种积极向上的状态。</view>
     </view>
   </view>
   <cover-view class="overlay" wx:if="{{ showWindow }}" bindtap="closeWindow">

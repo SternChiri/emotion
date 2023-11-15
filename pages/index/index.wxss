@@ -129,20 +129,20 @@
 }
 
 .article-info {
-  width: 55%;
+  width: 54%;
   display: block;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 .article-name {
-  margin-top: 30rpx;
+  margin-top: 40rpx;
   font-size: 45rpx;
   font-weight: bold;
   color: #333333;
 }
 
 .article-detail {
-  margin-top: 20rpx;
+  margin-top: 15rpx;
   font-size: 35rpx;
   color: #333333;
 }
