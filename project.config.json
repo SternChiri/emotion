@@ -20,7 +20,6 @@
     "newFeature": false,
     "uglifyFileName": false,
     "uploadWithSourceMap": true,
-    "useIsolateContext": true,
     "nodeModules": false,
     "enhance": true,
     "useMultiFrameRuntime": true,
@@ -38,7 +37,11 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "condition": false
+    "condition": false,
+    "skylineRenderEnable": false,
+    "ignoreUploadUnusedFiles": true,
+    "useCompilerPlugins": false,
+    "useIsolateContext": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.19.4",
@@ -48,5 +51,7 @@
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
-  }
+  },
+  "miniprogramRoot": "",
+  "srcMiniprogramRoot": "miniprogram/"
 }

@@ -10,28 +10,40 @@
     </view>
   </view>
 
+  <!-- 功能卡片 -->
+  <view class="function-card">
+    <!-- 心理测评 -->
+    <navigator class="sub-card" url="/pages/evaluation/evaluation">
+      <image class="sub-image" src="/pics/scale.png">
+        <view class="name">心理测评</view>
+      </image>
+    </navigator>
+
+
+    <!-- 情绪调适 -->
+    <navigator class="sub-card" url="/pages/adjust/adjust">
+    <image class="sub-image" src="/pics/heart.png">
+      <view class="name">情绪调适</view>
+    </image>
+  </navigator>
+  </view>
+
   <!--心理格言-->
   <view class="quote-card">
     <view class="quote">我这一代人的最大发现是，一个人可以通过改变自己的态度来改变自己的生活。</view>
     <view class="quote-author">—— 威廉·詹姆斯（1842~1910）</view>
   </view>
 
-  <!-- 功能卡片 -->
-  <view class="function-card">
-    <!-- 心理测评 -->
-    <image class="sub-card" src="/pics/scale.png">
-      <view class="name">心理测评</view>
-    </image>
-
-    <!-- 情绪调适 -->
-    <image class="sub-card" src="/pics/heart.png">
-      <view class="name">情绪调适</view>
-    </image>
+  <!--关于心理-->
+  <view class="article-card" bindtap="showModal">
+    <image class="article-image" src="/pics/logo.png"></image>
+    <view class="article-info">
+      <view class="article-title">关于心理健康</view>
+      <view class="article-detail">心理健康很重要！</view>
+    </view>
   </view>
 
   <view class="line"></view>
-
   <view class="end">由 西南交通大学心理研究与咨询中心“与情绪共舞”项目组 开发</view>
   <image class="logo" src="/pics/logo.png"></image>
-
 </view>
