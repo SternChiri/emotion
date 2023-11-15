@@ -208,6 +208,52 @@
   margin-top: 5rpx;
 }
 
+.float-button {
+  position: fixed;
+  right: 35rpx;
+  bottom: 120rpx;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background-color: rgb(250, 119, 119);
+  box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.float-button-icon {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.float-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.float-window {
+  background-color: #fff;
+  width: 630rpx;
+  height: 1000rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.3);
+  display: block;
+  overflow: hidden;
+  overflow-y: scroll;
+  padding: 30rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
 .line {
   border-top: 5rpx solid #ddd; 
   width: 100%;

@@ -6,6 +6,7 @@ Page({
   data: {
     todayDate: getTodayDate(),
     showWindow: false,
+    showFloatWindow: false,
   },
   goToDetailPage() {
     // 处理点击“查看详情”按钮的逻辑
@@ -19,10 +20,20 @@ Page({
       showWindow: true,
     });
   },
-
   closeWindow() {
     this.setData({
       showWindow: false,
+    });
+  },
+
+  openFloatWindow() {
+    this.setData({
+      showFloatWindow: true,
+    });
+  },
+  closeFloatWindow() {
+    this.setData({
+      showFloatWindow: false,
     });
   },
 });

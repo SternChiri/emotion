@@ -66,6 +66,18 @@
 
   <view class="line"></view>
 
+  <!--底部信息-->
   <view class="end">由 西南交通大学心理研究与咨询中心“与情绪共舞”项目组 开发</view>
   <image class="logo" src="/pics/logo.png"></image>
+
+  <!--今日心情-->
+  <view class="float-button" bindtap="openFloatWindow">
+    <image class="float-button-icon" src="/pics/edit.png" />
+  </view>
+  <!-- 悬浮窗口 -->
+  <view wx:if="{{showFloatWindow}}" class="float-mask" bindtap="closeFloatWindow"></view>
+  <cover-view class="float-window" wx:if="{{ showFloatWindow }}">
+    <cover-view class="float-window-content">心情日记</cover-view>
+  </cover-view>
+
 </view>
