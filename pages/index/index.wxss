@@ -10,7 +10,7 @@
   height: 350rpx;
   border-radius: 20rpx;
   padding: 20rpx;
-  margin-bottom: 40rpx;
+  margin-bottom: 20rpx;
   border: 1rpx solid #ddd;
   box-shadow: 0rpx 2rpx 6rpx rgba(0, 0, 0, 0.1);
   position: relative;
@@ -43,12 +43,41 @@
   right: 20rpx;
 }
 
+.quote-card {
+  display: block;
+  background-color: rgb(241, 241, 228);
+  width: 93%;
+  height: 100%;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 5rpx;
+  padding: 15rpx;
+  border: 1rpx solid #ddd;
+  box-shadow: 0rpx 2rpx 6rpx rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.quote {
+  font-size: 28rpx;
+  color: #222;
+  margin-top: 5rpx;
+  font-style: italic;
+}
+
+.quote-author {
+  font-size: 28rpx;
+  color: #555;
+  text-align: right;
+  font-style: italic;
+}
+
 .function-card {
   display: flex;
   justify-content: space-between;
   width: 98%;
   height: 320rpx;
-  margin-top: 30rpx;
+  margin-top: 20rpx;
+  margin-bottom: 30rpx;
 }
 
 .sub-card {
@@ -71,7 +100,20 @@
   right: 30rpx;
 }
 
+.logo {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.end {
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 5rpx;
+}
+
 .line {
   border-top: 5rpx solid #ddd; 
-  width: 98%;
+  width: 100%;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
 }

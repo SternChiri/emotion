@@ -10,7 +10,11 @@
     </view>
   </view>
 
-  <view class="line"></view>
+  <!--心理格言-->
+  <view class="quote-card">
+    <view class="quote">我这一代人的最大发现是，一个人可以通过改变自己的态度来改变自己的生活。</view>
+    <view class="quote-author">—— 威廉·詹姆斯（1842~1910）</view>
+  </view>
 
   <!-- 功能卡片 -->
   <view class="function-card">
@@ -24,4 +28,10 @@
       <view class="name">情绪调适</view>
     </image>
   </view>
+
+  <view class="line"></view>
+
+  <view class="end">由 西南交通大学心理研究与咨询中心“与情绪共舞”项目组 开发</view>
+  <image class="logo" src="/pics/logo.png"></image>
+
 </view>
