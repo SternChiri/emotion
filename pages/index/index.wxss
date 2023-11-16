@@ -16,6 +16,11 @@
   position: relative;
 }
 
+.mood-write {
+  widows: 90%;
+  height:80%;
+}
+
 .date {
   font-size: 32rpx;
   font-weight: bold;

@@ -5,8 +5,10 @@
   <view class="mood-card">
     <view class="date">{{todayDate}}</view>
     <view class="detail-btn" bindtap="goToDetailPage">></view>
-    <view class="mood-content">
-      <view class="mood-text">你今天心情如何？</view>
+    <view class="mood-write" bindtap="openFloatWindow">
+      <view class="mood-content">
+        <view class="mood-text">你今天心情如何？</view>
+      </view>
     </view>
   </view>
 
