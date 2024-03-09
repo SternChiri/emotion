@@ -1,7 +1,7 @@
 <!-- index.wxml -->
 
 <view class="container">
-  <!-- 今日心情 -->
+  <!-- 心情日记 -->
   <view class="mood-card">
     <view class="date">{{todayDate}}</view>
     <view class="detail-btn" bindtap="goToDetailPage">></view>
@@ -36,16 +36,16 @@
     <view class="quote-author">—— 威廉·詹姆斯（1842~1910）</view>
   </view>
 
-  <!--关于心理-->
+  <!--科普文章-->
   <view class="article-card" bindtap="openWindow">
     <image class="article-image" src="/pics/mental.png"></image>
     <view class="article-info">
       <view class="article-name">关于心理健康</view>
-      <view class="article-detail">一种积极向上的状态。</view>
+      <view class="article-detail">一种积极向上的状态</view>
     </view>
   </view>
-  <cover-view class="overlay" wx:if="{{ showWindow }}" bindtap="closeWindow">
-    <cover-view class="window-content">
+  <cover-view class="overlay" wx:if="{{ showWindow }}" bindtap="closeWindow"> </cover-view>
+    <cover-view class="window-content" wx:if="{{showWindow}}">
       <cover-image class="article-head-image" src="/pics/health.jpg"></cover-image>
       <cover-view class="article-title">关于心理健康</cover-view>
       <cover-view class="article-content">心理健康并非仅仅是摆脱心理障碍或疾病，更是一种积极向上的状态。它关乎我们对自己、他人和世界的看法，以及对生活的态度。一个心理健康的个体能够更好地应对生活中的压力和挑战，更积极地与他人交往，更好地实现自己的潜力。
@@ -64,7 +64,6 @@
       </cover-view>
       <cover-view class="line"></cover-view>
     </cover-view>
-  </cover-view>
 
   <view class="line"></view>
 
@@ -72,11 +71,12 @@
   <view class="end">由 西南交通大学心理研究与咨询中心“与情绪共舞”项目组 开发</view>
   <image class="logo" src="/pics/logo.png"></image>
 
-  <!--今日心情-->
+  <!--心情日记悬浮按钮-->
   <view class="float-button" bindtap="openFloatWindow">
     <image class="float-button-icon" src="/pics/edit.png" />
   </view>
-  <!-- 悬浮窗口 -->
+
+  <!-- 心情日记悬浮窗 -->
   <view wx:if="{{showFloatWindow}}" class="float-mask" bindtap="closeFloatWindow"></view>
   <cover-view class="float-window" wx:if="{{ showFloatWindow }}">
     <cover-view class="float-window-content">心情日记</cover-view>
