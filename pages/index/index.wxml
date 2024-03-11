@@ -4,7 +4,7 @@
   <!-- 心情日记 -->
   <view class="mood-card">
     <view class="date">{{todayDate}}</view>
-    <view class="detail-btn" bindtap="goToDetailPage">></view>
+    <image class="detail-btn" src="/pics/right.svg" bindtap="goToDetailPage"/>
     <view class="mood-write" bindtap="openFloatWindow">
       <view class="mood-content">
         <view class="mood-text">你今天心情如何？</view>
@@ -32,34 +32,23 @@
 
   <!--心理格言-->
   <view class="quote-card">
-    <view class="quote">我这一代人的最大发现是，一个人可以通过改变自己的态度来改变自己的生活。</view>
-    <view class="quote-author">—— 威廉·詹姆斯（1842~1910）</view>
+    <view class="quote">{{quoteRecord.content}}</view>
+    <view class="quote-author">{{quoteRecord.author}}</view>
   </view>
 
   <!--科普文章-->
   <view class="article-card" bindtap="openWindow">
     <image class="article-image" src="/pics/mental.png"></image>
-    <view class="article-info">
-      <view class="article-name">关于心理健康</view>
-      <view class="article-detail">一种积极向上的状态</view>
+    <view class="article-info"  wx:for="{{contentList}}" wx:key="_id">
+      <view class="article-name">{{item.title}}</view>
+      <view class="article-detail">{{item.detail}}</view>
     </view>
   </view>
   <cover-view class="overlay" wx:if="{{ showWindow }}" bindtap="closeWindow"> </cover-view>
-    <cover-view class="window-content" wx:if="{{showWindow}}">
+    <cover-view class="window-content" wx:if="{{showWindow}}" wx:for="{{contentList}}" wx:key="_id">
       <cover-image class="article-head-image" src="/pics/health.jpg"></cover-image>
-      <cover-view class="article-title">关于心理健康</cover-view>
-      <cover-view class="article-content">心理健康并非仅仅是摆脱心理障碍或疾病，更是一种积极向上的状态。它关乎我们对自己、他人和世界的看法，以及对生活的态度。一个心理健康的个体能够更好地应对生活中的压力和挑战，更积极地与他人交往，更好地实现自己的潜力。
-
-        首先，心理健康对个体的身体健康具有直接影响。大量研究表明，心理健康问题与许多慢性疾病的发生和发展密切相关。长期的焦虑、抑郁和持续的压力可以削弱免疫系统，增加心脏病、糖尿病等疾病的风险。因此，关注心理健康不仅有助于维护精神状态，还有助于维持身体的整体健康。
-
-        其次，心理健康对人际关系的建立和维护至关重要。一个心理健康的个体更容易与他人建立深厚的关系，因为他们能够更好地理解并回应他人的情感和需求。良好的人际关系不仅带来愉悦感和幸福感，还是缓解压力和解决问题的重要途径。相反，心理健康问题可能导致社交隔离，加剧孤独感，形成恶性循环。
-
-        此外，心理健康对工作和学业的表现也有着深远的影响。一个心理健康的个体更有可能保持专注、高效工作，更能够应对挑战和适应变化。心理健康问题则可能导致工作效率下降、创造力减弱，甚至严重时可能影响到职业生涯的发展。
-
-        如何保持心理健康？
-
-        首先，要注意自己的情感和需求，学会有效地应对压力。定期进行身心放松的活动，如冥想、运动、阅读等，有助于保持心理平衡。其次，建立良好的社交网络，与他人分享情感和经验。同时，寻求专业的心理健康支持也是非常重要的，心理咨询、心理治疗等手段可以帮助个体更好地理解和应对自己的心理问题。
-
+      <cover-view class="article-title">{{item.title}}</cover-view>
+      <cover-view class="article-content">{{item.content_1}}\n\n{{item.content_2}}\n\n{{item.content_3}}\n\n{{item.content_4}}\n\n{{item.content_5}}\n\n{{item.content_6}}
         <cover-view class="line"></cover-view>
       </cover-view>
       <cover-view class="line"></cover-view>

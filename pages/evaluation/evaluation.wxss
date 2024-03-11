@@ -1,1 +1,97 @@
 /* pages/evaluation.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.search-bar {
+  display: flex;
+  width:95%;
+  align-items: center;
+  padding: 15rpx;
+  border-radius: 40rpx;
+  box-shadow: 0 0 0 1rpx rgb(112, 112, 112);
+  margin-bottom: 40rpx;
+}
+
+.search-input {
+  flex: 1;
+  font-size: 32rpx;
+  margin-right: 10rpx;
+  margin-left: 15rpx;
+}
+
+.list {
+  width: 100%;
+  background-color: #f0f0f0;
+}
+
+.filter-bar {
+  width: 100%;
+  margin-bottom: 30rpx;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  padding: 18rpx 20rpx;
+  background-color: white;
+  font-size: 28rpx;
+  color: #333;
+  cursor: pointer;
+  position: relative;
+}
+
+.arrow-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 15rpx;
+}
+
+.down {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 20rpx;
+  position: absolute;
+  right: 0;
+}
+
+.item {
+  width: 90%;
+  padding: 20rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  background-color: white;
+  border-radius: 20rpx;
+  position: relative;
+  margin-left: 16rpx;
+}
+
+.title {
+  font-size: 42rpx;
+  font-weight: bold;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+}
+
+.num {
+  font-size: 30rpx;
+  position: absolute; 
+  top: 75%;
+  right: 0;
+  transform: translateY(-50%);
+  margin-right: 25rpx;
+}
+
+.tag {
+  font-size: 14px;
+  color: #666;
+}
+
+.description {
+  font-size: 14px;
+  color: #666;
+}

@@ -41,10 +41,10 @@
 }
 
 .detail-btn {
-  font-size: 40rpx;
+  width: 40rpx;
   color: #007aff;
   position: absolute;
-  top: 15rpx;
+  top: -160rpx;
   right: 20rpx;
 }
 
@@ -110,6 +110,7 @@
   color: #555;
   text-align: right;
   font-style: italic;
+  margin-top: 20rpx;
 }
 
 .article-card {
