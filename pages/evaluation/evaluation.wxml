@@ -7,19 +7,24 @@
     <view class="filter-bar">
       <picker bindchange="onTagChange" mode="selector" range="{{tags}}" value="{{selectedTagIndex}}">
         <view class="filter-item">
-        <image src="/pics/list.svg" class="arrow-icon" />
+          <image src="/pics/list.svg" class="arrow-icon" />
           {{selectedTag}}
           <image src="/pics/down.svg" class="down" />
         </view>
-        
+
       </picker>
     </view>
     <block wx:for="{{searchResult}}" wx:key="_id">
       <view class="item">
         <view class="title">{{item.title}}</view>
-        <view class="num">{{item.item_num}}题</view>
-        <view class="tag">{{item.tag}}</view>
+        <view class="num">{{item.item_num}}道题</view>
+        <view class="tag-line">
+          <view class="tag {{ 'tag-' + item }}" wx:for="{{ item.tag }}" wx:key="index" style="background-color: {{ backgroundColorMap[item] }}">
+            {{ item }}
+          </view>
+        </view>
       </view>
     </block>
   </view>
+  <view wx:if="{{noResultMessage}}" class="no-result-message">{{noResultMessage}}</view>
 </view>

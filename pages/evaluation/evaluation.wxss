@@ -63,32 +63,41 @@
   width: 90%;
   padding: 20rpx;
   margin-top: 20rpx;
-  margin-bottom: 20rpx;
+  margin-bottom: 30rpx;
   background-color: white;
   border-radius: 20rpx;
   position: relative;
   margin-left: 16rpx;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); 
 }
 
 .title {
   font-size: 42rpx;
   font-weight: bold;
-  margin-top: 15rpx;
   margin-bottom: 15rpx;
 }
 
 .num {
-  font-size: 30rpx;
+  font-size: 28rpx;
   position: absolute; 
   top: 75%;
   right: 0;
   transform: translateY(-50%);
   margin-right: 25rpx;
+  color: #666;
+}
+
+.tag-line {
+  display: flex;
+  margin-top: 20rpx;
 }
 
 .tag {
-  font-size: 14px;
-  color: #666;
+  font-size: 13px;
+  color: rgb(255, 255, 255);
+  margin-right: 10rpx;
+  padding-inline: 7rpx;
+  border-radius: 10rpx;
 }
 
 .description {
