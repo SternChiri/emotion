@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/evaluation/evaluation",
+    "pages/scale/scale",
     "pages/adjust/adjust"
   ],
   "window": {
