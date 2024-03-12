@@ -18,7 +18,8 @@ Page({
       '老年': '#90EE90',
       '考试': '#FA8072',
       '产后': '#FA8072',
-    }
+    },
+    showFloatWindow: false,
   },
   onLoad: function () {
     db.collection('scale').get({
@@ -99,5 +100,18 @@ Page({
         console.error('数据库请求失败：', err); // 输出数据库请求失败的错误信息
       });
     }
-  }
+  },
+
+  openFloatWindow(event) {
+    const item = event.currentTarget.dataset.item;
+    this.setData({
+      showFloatWindow: true,
+      floatWindowItem: item,
+    });
+  },  
+  closeFloatWindow() {
+    this.setData({
+      showFloatWindow: false,
+    });
+  },
 });

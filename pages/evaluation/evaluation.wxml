@@ -15,7 +15,7 @@
       </picker>
     </view>
     <block wx:for="{{searchResult}}" wx:key="_id">
-      <view class="item">
+      <view class="item" bindtap="openFloatWindow" data-item="{{item}}">
         <view class="title">{{item.title}}</view>
         <view class="num">{{item.item_num}}道题</view>
         <view class="tag-line">
@@ -28,3 +28,15 @@
   </view>
   <view wx:if="{{noResultMessage}}" class="no-result-message">{{noResultMessage}}</view>
 </view>
+
+<view wx:if="{{showFloatWindow}}" class="float-mask" bindtap="closeFloatWindow"></view>
+<cover-view class="float-window" wx:if="{{ showFloatWindow }}">
+  <cover-view class="title">{{ floatWindowItem.title }}</cover-view>
+  <cover-view class="line"></cover-view>
+  <cover-view class="description">
+    <block wx:for="{{ floatWindowItem.description }}" wx:key="index">{{ item }}
+  
+    </block>
+  </cover-view>
+  <cover-view class="item-num">- 题目数：{{ floatWindowItem.item_num }}题</cover-view>
+</cover-view>
