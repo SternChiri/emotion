@@ -7,9 +7,9 @@
     <view class="filter-bar">
       <picker bindchange="onTagChange" mode="selector" range="{{tags}}" value="{{selectedTagIndex}}">
         <view class="filter-item">
-          <image src="/pics/list.svg" class="arrow-icon" />
+          <image src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics/list.svg" class="arrow-icon" />
           {{selectedTag}}
-          <image src="/pics/down.svg" class="down" />
+          <image src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics/down.svg" class="down" />
         </view>
 
       </picker>

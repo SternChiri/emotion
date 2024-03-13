@@ -6,12 +6,24 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
-    // 登录
     wx.login({
       success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        if (res.code) {
+          wx.cloud.callFunction({
+            name: 'wxacode-getSession',
+            data: { code: res.code },
+            success: res => {
+              console.log('获取 openid 成功', res.result);
+            },
+            fail: err => {
+              console.error('获取 openid 失败', err);
+            }
+          });
+        } else {
+          console.error('登录失败！' + res.errMsg);
+        }
       }
-    })
+    });
 
     // 初始化云开发服务
     wx.cloud.init({
@@ -23,4 +35,3 @@ App({
     userInfo: null
   }
 })
-

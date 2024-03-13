@@ -1,6 +1,10 @@
 // pages/scale/scale.js
 const db = wx.cloud.database();
 const app = getApp();
+let lastClickedIndex = {
+  sliced_1: null,
+  sliced_2: null
+};
 
 Page({
   data: {
@@ -98,7 +102,7 @@ Page({
   },
 
   checkLsasButtonClicks: function() {
-    if (sliced_1_clicked && sliced_2_clicked) {
+    if (this.data.sliced_1_clicked && this.data.sliced_2_clicked) {
       this.setData({
         sliced_1_clicked: false,
         sliced_2_clicked: false,

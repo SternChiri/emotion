@@ -54,5 +54,6 @@
   },
   "miniprogramRoot": "",
   "srcMiniprogramRoot": "miniprogram/",
-  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/"
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
+  "cloudfunctionRoot": "cloudfunctions/"
 }

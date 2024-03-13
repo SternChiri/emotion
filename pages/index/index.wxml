@@ -4,7 +4,7 @@
   <!-- 心情日记 -->
   <view class="mood-card">
     <view class="date">{{todayDate}}</view>
-    <image class="detail-btn" src="/pics/right.svg" bindtap="goToDetailPage"/>
+    <image class="detail-btn" src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics/right.svg" bindtap="goToDetailPage"/>
     <view class="mood-write" bindtap="openFloatWindow">
       <view class="mood-content">
         <view class="mood-text">你今天心情如何？</view>
@@ -16,7 +16,7 @@
   <view class="function-card">
     <!-- 心理测评 -->
     <navigator class="sub-card" url="/pages/evaluation/evaluation">
-      <image class="sub-image" src="/pics/scale.png">
+      <image class="sub-image" src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics/scale.png">
         <view class="name">心理测评</view>
       </image>
     </navigator>
@@ -24,7 +24,7 @@
 
     <!-- 情绪调适 -->
     <navigator class="sub-card" url="/pages/adjust/adjust">
-      <image class="sub-image" src="/pics/heart.png">
+      <image class="sub-image" src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics/heart.png">
         <view class="name">情绪调适</view>
       </image>
     </navigator>
@@ -37,16 +37,16 @@
   </view>
 
   <!--科普文章-->
-  <view class="article-card" bindtap="openWindow">
-    <image class="article-image" src="/pics/mental.png"></image>
-    <view class="article-info"  wx:for="{{contentList}}" wx:key="_id">
+  <view class="article-card" wx:for="{{contentList}}" wx:key="_id" bindtap="openWindow">
+    <image class="article-image" src="{{item.cover}}"></image>
+    <view class="article-info">
       <view class="article-name">{{item.title}}</view>
       <view class="article-detail">{{item.detail}}</view>
     </view>
   </view>
   <cover-view class="overlay" wx:if="{{ showWindow }}" bindtap="closeWindow"> </cover-view>
     <cover-view class="window-content" wx:if="{{showWindow}}" wx:for="{{contentList}}" wx:key="_id">
-      <cover-image class="article-head-image" src="/pics/health.jpg"></cover-image>
+      <cover-image class="article-head-image" src="{{item.headImage}}"></cover-image>
       <cover-view class="article-title">{{item.title}}</cover-view>
       <cover-view class="article-content" wx:for="{{item.content}}" wx:key="index">{{item}}
       
@@ -57,11 +57,11 @@
 
   <!--底部信息-->
   <view class="end">由 西南交通大学心理研究与咨询中心“与情绪共舞”项目组 开发</view>
-  <image class="logo" src="/pics/logo.png"></image>
+  <image class="logo" src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics/logo.png"></image>
 
   <!--心情日记悬浮按钮-->
   <view class="float-button" bindtap="openFloatWindow">
-    <image class="float-button-icon" src="/pics/edit.png" />
+    <image class="float-button-icon" src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics/edit.png" />
   </view>
 
   <!-- 心情日记悬浮窗 -->
