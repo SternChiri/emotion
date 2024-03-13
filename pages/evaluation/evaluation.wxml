@@ -40,6 +40,6 @@
   </cover-view>
   <cover-view class="item-num">- 题目数：{{ floatWindowItem.item_num }}题</cover-view>
   <cover-view class="down-white">
-    <navigator class="start" url="/pages/scale/scale">开始作答</navigator>
+    <navigator class="start" url="/pages/scale/scale?id={{ floatWindowItem._id }}">开始作答</navigator>
   </cover-view>
 </cover-view>

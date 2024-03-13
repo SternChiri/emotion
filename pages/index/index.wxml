@@ -48,10 +48,9 @@
     <cover-view class="window-content" wx:if="{{showWindow}}" wx:for="{{contentList}}" wx:key="_id">
       <cover-image class="article-head-image" src="/pics/health.jpg"></cover-image>
       <cover-view class="article-title">{{item.title}}</cover-view>
-      <cover-view class="article-content">{{item.content_1}}\n\n{{item.content_2}}\n\n{{item.content_3}}\n\n{{item.content_4}}\n\n{{item.content_5}}\n\n{{item.content_6}}
-        <cover-view class="line"></cover-view>
+      <cover-view class="article-content" wx:for="{{item.content}}" wx:key="index">{{item}}
+      
       </cover-view>
-      <cover-view class="line"></cover-view>
     </cover-view>
 
   <view class="line"></view>

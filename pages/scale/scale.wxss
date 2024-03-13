@@ -1,1 +1,84 @@
 /* pages/scale/scale.wxss */
+.container {
+  padding: 40rpx;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.instr {
+  margin-bottom: 40rpx;
+  padding: 40rpx;
+}
+
+.instruction {
+  font-size: 40rpx;
+  color: #333;
+  margin-bottom: 500rpx;
+  
+}
+
+.instruction-content {
+  font-size: 40rpx;
+  color: #333;
+  margin-bottom: 25rpx;
+}
+
+.question-content {
+  font-size: 35rpx;
+  color: #333;
+  margin-bottom: 100rpx;
+  margin-top: 250rpx;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.subOptions {
+  display: inline-block;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.optionsLsas {
+  display: flex;
+  justify-content: space-between;
+}
+
+.optionTitle {
+  color: #333;
+  font-size: 30rpx;
+  margin-bottom: 30rpx;
+  margin-left: 20rpx;
+}
+
+.option {
+  display: inline-block;
+  color: #007bff;
+  border: 1rpx solid;
+  border-radius: 15rpx;
+  padding: 20rpx;
+  margin-right: 30rpx;
+  margin-bottom: 30rpx;
+  font-size: 30rpx;
+}
+
+.next {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 15rpx;
+  padding: 20rpx;
+  margin-top: 50rpx;
+  margin-bottom: 100rpx;
+  font-size: 30rpx;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
