@@ -269,3 +269,10 @@
   margin-top: 10rpx;
   margin-bottom: 10rpx;
 }
+/* WXSS */
+.input-mood {
+  width: 80%; /* 输入框宽度 */
+  border: 1px solid #ccc; /* 输入框边框 */
+  margin-top: 10px; /* 与标题的间距 */
+  padding: 5px; /* 内边距 */
+}

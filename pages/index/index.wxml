@@ -67,8 +67,11 @@
 
   <!-- 心情日记悬浮窗 -->
   <view wx:if="{{showFloatWindow}}" class="float-mask" bindtap="closeFloatWindow"></view>
-  <cover-view class="float-window" wx:if="{{ showFloatWindow }}">
-    <cover-view class="float-window-content">心情日记</cover-view>
-  </cover-view>
-
+  <view class="float-window" wx:if="{{ showFloatWindow }}">
+    <view class="float-window-content">心情日记
+     <!-- 输入心情 -->
+      <input type="text" class="input-mood" placeholder="输入你的心情..." />
+    <!-- 这里可以添加一个表情选择器 -->
+    </view>
+  </view>
 </view>
