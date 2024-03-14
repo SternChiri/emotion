@@ -109,6 +109,11 @@ Page({
       floatWindowItem: item,
     });
   },  
+  navigateToScalePage() {
+    wx.navigateTo({
+      url: '/pages/scale/scale?id=' + this.data.floatWindowItem._id
+    });
+  },
   closeFloatWindow() {
     this.setData({
       showFloatWindow: false,

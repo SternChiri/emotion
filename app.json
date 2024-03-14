@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/evaluation/evaluation",
     "pages/scale/scale",
-    "pages/adjust/adjust"
+    "pages/adjust/adjust",
+    "pages/evaResult/evaResult"
   ],
   "window": {
     "backgroundTextStyle": "light",

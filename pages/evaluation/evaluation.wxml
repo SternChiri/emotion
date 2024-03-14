@@ -7,9 +7,9 @@
     <view class="filter-bar">
       <picker bindchange="onTagChange" mode="selector" range="{{tags}}" value="{{selectedTagIndex}}">
         <view class="filter-item">
-          <image src="/pics/list.svg" class="arrow-icon" />
+          <image src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics/list.svg" class="arrow-icon" />
           {{selectedTag}}
-          <image src="/pics/down.svg" class="down" />
+          <image src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics/down.svg" class="down" />
         </view>
 
       </picker>
@@ -31,15 +31,17 @@
 
 <view wx:if="{{showFloatWindow}}" class="float-mask" bindtap="closeFloatWindow"></view>
 <cover-view class="float-window" wx:if="{{ showFloatWindow }}">
-  <cover-view class="title">{{ floatWindowItem.title }}</cover-view>
-  <cover-view class="line"></cover-view>
-  <cover-view class="description">
-    <block wx:for="{{ floatWindowItem.description }}" wx:key="index">{{ item }}
+  <cover-view class="float-content">
+    <cover-view class="title">{{ floatWindowItem.title }}</cover-view>
+    <cover-view class="line"></cover-view>
+    <cover-view class="description">
+      <block wx:for="{{ floatWindowItem.description }}" wx:key="index">{{ item }}
 
-    </block>
+      </block>
+    </cover-view>
+    <cover-view class="item-num">- 题目数：{{ floatWindowItem.item_num }}题</cover-view>
   </cover-view>
-  <cover-view class="item-num">- 题目数：{{ floatWindowItem.item_num }}题</cover-view>
   <cover-view class="down-white">
-    <navigator class="start" url="/pages/scale/scale">开始作答</navigator>
+    <cover-view class="start" bindtap="navigateToScalePage">开始作答</cover-view>
   </cover-view>
 </cover-view>

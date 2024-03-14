@@ -3,5 +3,6 @@
   "projectname": "emotion",
   "setting": {
     "compileHotReLoad": true
-  }
+  },
+  "libVersion": "development"
 }
