@@ -70,7 +70,7 @@
 
 .next {
   display: inline-block;
-  background-color: #007bff;
+  background-color: deepskyblue;
   color: #fff;
   border: none;
   border-radius: 15rpx;
