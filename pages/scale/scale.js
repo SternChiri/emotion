@@ -78,9 +78,8 @@ Page({
         currentItemIndex: currentIndex
       });
     } else {
-      wx.showToast({
-        title: '已完成所有题目',
-        icon: 'none'
+      wx.navigateTo({
+        url: '/pages/evaResult/evaResult?id=' + this.data.scaleId
       });
     }
   },
