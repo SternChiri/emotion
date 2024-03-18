@@ -16,7 +16,7 @@ App({
     if (openid) {
       console.log('用户已登录');
       wx.navigateTo({
-        url: '/pages/index/index',
+        url: '/pages/index/index.wxml',
       })
     } else {
       console.log('用户未登录，尝试登录中...');

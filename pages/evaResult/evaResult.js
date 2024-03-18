@@ -1,18 +1,16 @@
 // pages/evaResult/evaResult.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    scaleId: '',
+    score: 0,
+    score_1: 0
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad(options) {
-
+    const scaleId = options.id;
+    const score = options.score;
+    const score_1 = options.score_1;
+    console.log(scaleId, score, score_1)
   },
 
   /**
