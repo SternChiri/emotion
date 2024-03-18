@@ -12,15 +12,15 @@
     <view class="optionsLsas" hidden="{{currentQuestionType !== 'lsas'}}">
       <view class="subOptions">
         <view class="optionTitle">害怕/焦虑：</view>
-        <button wx:for="{{sliced_1}}" wx:key="index" class="option" bindtap="handleLsasClick_1">{{item}}</button>
+        <button wx:for="{{sliced_1}}" wx:key="index" class="option" bindtap="handleLsasClick_1" data-index="{{index}}">{{item}}</button>
       </view>
       <view class="subOptions">
         <view class="optionTitle">回避：</view>
-        <button wx:for="{{sliced_2}}" wx:key="index" class="option" bindtap="handleLsasClick_2">{{item}}</button>
+        <button wx:for="{{sliced_2}}" wx:key="index" class="option" bindtap="handleLsasClick_2" data-index="{{index}}">{{item}}</button>
       </view>
     </view>
     <view class="options" hidden="{{currentQuestionType === 'lsas'}}">
-      <button wx:for="{{currentQuestion.options}}" wx:key="index" class="option" bindtap="handleButtonClick">{{item}}</button>
+      <button wx:for="{{currentQuestion.options}}" wx:key="index" class="option" bindtap="handleButtonClick" data-index="{{index}}">{{item}}</button>
     </view>
   </view>
 </view>

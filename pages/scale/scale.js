@@ -15,8 +15,8 @@ Page({
     isInstruction: false,
     items: [],
     currentQuestionType: '',
-    sliced_1_clicked: false,
-    sliced_2_clicked: false,
+    buttonIndex_1: null,
+    buttonIndex_2: null,
   },
 
   onLoad: function (options) {
@@ -84,27 +84,31 @@ Page({
     }
   },
 
-  handleLsasClick_1: function(event) {
+  handleLsasClick_1: function (event) {
     const buttonIndex = event.currentTarget.dataset.index;
     this.setData({
-      sliced_1_clicked: true,
+      buttonIndex_1: buttonIndex,
     });
     this.checkLsasButtonClicks();
   },
 
-  handleLsasClick_2: function(event) {
+  handleLsasClick_2: function (event) {
     const buttonIndex = event.currentTarget.dataset.index;
     this.setData({
-      sliced_2_clicked: true,
+      buttonIndex_2: buttonIndex,
     });
     this.checkLsasButtonClicks();
   },
 
-  checkLsasButtonClicks: function() {
-    if (this.data.sliced_1_clicked && this.data.sliced_2_clicked) {
+  checkLsasButtonClicks: function () {
+    const buttonIndex_1 = this.data.buttonIndex_1;
+    const buttonIndex_2 = this.data.buttonIndex_2;
+    if (buttonIndex_1 !== null && buttonIndex_2 !== null) {
+      console.log("Button index clicked from source 1:", buttonIndex_1);
+      console.log("Button index clicked from source 2:", buttonIndex_2);
       this.setData({
-        sliced_1_clicked: false,
-        sliced_2_clicked: false,
+        buttonIndex_1: null,
+        buttonIndex_2: null
       });
       this.showNextItem();
     }
