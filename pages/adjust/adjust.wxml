@@ -1,2 +1,6 @@
 <!--pages/adjust/adjust.wxml-->
-<text>pages/adjust/adjust.wxml</text>
+<view class="button-container">
+  <button class="square-button" bind:tap="toBreathe">按钮1</button>
+  <button class="square1-button">按钮2</button>
+  <button class="square2-button">按钮3</button>
+</view>

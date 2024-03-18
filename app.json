@@ -5,7 +5,8 @@
     "pages/evaluation/evaluation",
     "pages/scale/scale",
     "pages/adjust/adjust",
-    "pages/evaResult/evaResult"
+    "pages/evaResult/evaResult",
+    "pages/breathe/breathe"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -16,7 +17,6 @@
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
-
   "networkTimeout": {
     "request": 10000,
     "downloadFile": 10000
