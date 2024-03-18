@@ -7,7 +7,15 @@
 }
 
 .custom-animation {
-  width: 100px;
-  height: 100px;
+  width: 100rpx;
+  height: 100rpx;
   background-color: rgb(26, 79, 236);
+}
+
+.button-container {
+  position: absolute;
+  bottom: 600rpx;
+  /* 距离内容底部的距离 */
+  left: 50%;
+  transform: translateX(-50%)
 }

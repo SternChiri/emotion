@@ -5,7 +5,7 @@ Page({
     animationData: {} // 用于存储动画数据
   },
 
-  onLoad: function () {
+  startAnimation: function () {
     // 创建一个动画实例
     const animation = wx.createAnimation({
       duration: 6000, // 动画持续时间为1秒

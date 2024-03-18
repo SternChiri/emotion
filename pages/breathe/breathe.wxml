@@ -2,4 +2,6 @@
 <view class="container">
   <!-- 自定义动画效果 -->
   <view class="custom-animation" animation="{{ animationData }}"></view>
+  <!-- 启动按钮 -->
 </view>
+<view class="button-container"><button bindtap="startAnimation">启动动画</button></view>
