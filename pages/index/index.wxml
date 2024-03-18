@@ -4,7 +4,7 @@
   <!-- 心情日记 -->
   <view class="mood-card">
     <view class="date">{{todayDate}}</view>
-    <image class="detail-btn" src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics/right.svg" bindtap="goToDetailPage"/>
+    <image class="detail-btn" src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics/right.svg" bindtap="goToDetailPage" />
     <view class="mood-write" bindtap="openFloatWindow">
       <view class="mood-content">
         <view class="mood-text">你今天心情如何？</view>
@@ -45,13 +45,13 @@
     </view>
   </view>
   <cover-view class="overlay" wx:if="{{ showWindow }}" bindtap="closeWindow"> </cover-view>
-    <cover-view class="window-content" wx:if="{{showWindow}}" wx:for="{{contentList}}" wx:key="_id">
-      <cover-image class="article-head-image" src="{{item.headImage}}"></cover-image>
-      <cover-view class="article-title">{{item.title}}</cover-view>
-      <cover-view class="article-content" wx:for="{{item.content}}" wx:key="index">{{item}}
-      
-      </cover-view>
+  <cover-view class="window-content" wx:if="{{showWindow}}" wx:for="{{contentList}}" wx:key="_id">
+    <cover-image class="article-head-image" src="{{item.headImage}}"></cover-image>
+    <cover-view class="article-title">{{item.title}}</cover-view>
+    <cover-view class="article-content" wx:for="{{item.content}}" wx:key="index">{{item}}
+
     </cover-view>
+  </cover-view>
 
   <view class="line"></view>
 
@@ -67,10 +67,22 @@
   <!-- 心情日记悬浮窗 -->
   <view wx:if="{{showFloatWindow}}" class="float-mask" bindtap="closeFloatWindow"></view>
   <view class="float-window" wx:if="{{ showFloatWindow }}">
-    <view class="float-window-content">心情日记
-     <!-- 输入心情 -->
-      <input type="text" class="input-mood" placeholder="输入你的心情..." />
-    <!-- 这里可以添加一个表情选择器 -->
+    <view class="float-window-content">心情日记</view>
+    <view class="slider-container">
+      <text class="slider-value">{{selectedWord1}}</text>
+      <slider class="custom-slider" min="-5" max="5" value="{{selectedValue1}}" block-size="20" bindchange="handleSliderChange1"></slider>
     </view>
+
+    <view class="slider-container">
+      <text class="slider-value">{{selectedWord2}}</text>
+      <slider class="custom-slider" min="-5" max="5" value="{{selectedValue2}}" block-size="20" bindchange="handleSliderChange2"></slider>
+    </view>
+    <view class="meaning-container">
+      <text>当前组合意义：</text>
+      <text class="selected-meaning">{{selectedMeaning}}</text>
+    </view>
+    <!-- 输入心情 -->
+    <textarea class="input-mood" placeholder="输入你的心情..." value="{{moodInputValue}}" bindinput="handleInput"></textarea>
+    <button class="submit-button" bindtap="handleSubmit">提交</button>
   </view>
 </view>
