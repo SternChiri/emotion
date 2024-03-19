@@ -20,6 +20,7 @@ Page({
       '产后': '#FA8072',
     },
     showFloatWindow: false,
+    evaData: []
   },
   onLoad: function () {
     db.collection('scale').get({
@@ -40,6 +41,7 @@ Page({
           tags: ['全部', ...tags]
         });
         this.filterListByTag('全部');
+        this.getResult();
       },
       fail: err => {
         console.error('拉取内容失败：', err);
@@ -64,7 +66,7 @@ Page({
         });
       } else {
         this.setData({
-          searchResult: [], 
+          searchResult: [],
           noResultMessage: '没有找到你想找的内容哦~请换个词试试！'
         });
       }
@@ -102,13 +104,60 @@ Page({
     }
   },
 
+  getResult() {
+    const that = this;
+    const openid = wx.getStorageSync('openid');
+    db.collection('user').where({
+      _openid: openid
+    }).get({
+      success: function (res) {
+        if (res.data.length > 0) {
+          const evaData = res.data[0].evaData;
+          that.setData({
+            evaData: evaData
+          });
+        } else {
+          console.log('未找到用户记录');
+        }
+      },
+      fail: function (error) {
+        console.error('查询用户记录失败：', error);
+      }
+    });
+  },
+
   openFloatWindow(event) {
     const item = event.currentTarget.dataset.item;
+    const evaData = this.data.evaData;
+    const scaleId = item._id;
+    const foundItem = evaData.find(item => item.scaleId === scaleId);
+    if (foundItem) {
+      const formattedScoreList = foundItem.scoreList.map(score => {
+        return {
+          time: formatDate(score.time),
+          score: score.score,
+          score_1: score.score_1
+        };
+      });
+      const sortedScoreList = formattedScoreList.reverse();
+      this.setData({
+        sortedScoreList: sortedScoreList
+      });
+    } else {
+      console.log('未找到对应的 scaleId');
+    }
     this.setData({
       showFloatWindow: true,
       floatWindowItem: item,
     });
-  },  
+  },
+
+  navigateToResult(event) {
+    const index = event.currentTarget.dataset.index;
+    wx.navigateTo({
+      url: '/pages/evaResult/evaResult?id=' + this.data.floatWindowItem._id + '&score=' + this.data.sortedScoreList[index].score + '&score_1=' + this.data.sortedScoreList[index].score_1
+    });
+  },
   navigateToScalePage() {
     wx.navigateTo({
       url: '/pages/scale/scale?id=' + this.data.floatWindowItem._id
@@ -120,3 +169,12 @@ Page({
     });
   },
 });
+
+function formatDate(date) {
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const day = date.getDate().toString().padStart(2, '0');
+  const hours = date.getHours().toString().padStart(2, '0');
+  const minutes = date.getMinutes().toString().padStart(2, '0');
+  return `${year}-${month}-${day} ${hours}:${minutes}`;
+}

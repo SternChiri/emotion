@@ -29,9 +29,9 @@
   <view wx:if="{{noResultMessage}}" class="no-result-message">{{noResultMessage}}</view>
 </view>
 
-<view wx:if="{{showFloatWindow}}" class="float-mask" bindtap="closeFloatWindow"></view>
-<cover-view class="float-window" wx:if="{{ showFloatWindow }}">
-  <cover-view class="float-content">
+<cover-view wx:if="{{showFloatWindow}}" class="float-mask" bindtap="closeFloatWindow"></cover-view>
+<view class="float-window" wx:if="{{ showFloatWindow }}">
+  <scroll-view class="float-content" scroll-y="true">
     <cover-view class="title">{{ floatWindowItem.title }}</cover-view>
     <cover-view class="line"></cover-view>
     <cover-view class="description">
@@ -41,11 +41,17 @@
     </cover-view>
     <cover-view class="item-num">- 题目数：{{ floatWindowItem.item_num }}题</cover-view>
     <cover-view class="record">
-      <block wx:for="{{}}" wx:key="index">
+    <cover-view class="description">- 作答记录：</cover-view>
+      <block wx:for="{{sortedScoreList}}" wx:key="index">
+        <view class="scoreList" bindtap="navigateToResult" data-index="{{index}}">
+          <view class="time">{{item.time}}</view>
+          <view class="score">{{item.score}}</view>
+          <view class="score" hidden="{{item.score_1 === undefined}}">{{item.score_1}}</view>
+        </view>
       </block>
     </cover-view>
-  </cover-view>
+  </scroll-view>
   <cover-view class="down-white">
     <cover-view class="start" bindtap="navigateToScalePage">开始作答</cover-view>
   </cover-view>
-</cover-view>
+</view>

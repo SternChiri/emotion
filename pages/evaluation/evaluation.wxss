@@ -125,7 +125,7 @@
 }
 
 .float-content {
-  height: 900rpx;
+  height: 800rpx;
   display: block;
   overflow-y: scroll;
 }
@@ -140,8 +140,36 @@
 .item-num {
   font-size: 32rpx;
   margin-top: 30rpx;
-  margin-bottom: 150rpx;
+  margin-bottom: 50rpx;
   z-index: 3;
+}
+
+.record {
+  margin-bottom: 60rpx;
+  width: 96%;
+}
+
+.scoreList {
+  margin-bottom: 8rpx;
+  padding: 18rpx;
+  background-color: rgb(247, 247, 247);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 5rpx solid rgb(228, 228, 228);
+  border-radius: 15rpx;
+}
+
+.time {
+  font-size: 32rpx;
+  color: #333;
+  margin-left: 10rpx; 
+}
+
+.score {
+  font-size: 32rpx;
+  color: #00bfff;
+  margin-right: 10rpx; 
 }
 
 .down-white {
@@ -156,6 +184,7 @@
   justify-content: center;
   align-items: center;
   z-index: 50;
+  border-radius: 20rpx;
 }
 
 .start {
