@@ -40,6 +40,10 @@
       </block>
     </cover-view>
     <cover-view class="item-num">- 题目数：{{ floatWindowItem.item_num }}题</cover-view>
+    <cover-view class="record">
+      <block wx:for="{{}}" wx:key="index">
+      </block>
+    </cover-view>
   </cover-view>
   <cover-view class="down-white">
     <cover-view class="start" bindtap="navigateToScalePage">开始作答</cover-view>

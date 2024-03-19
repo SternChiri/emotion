@@ -1,2 +1,77 @@
 <!--pages/evaResult/evaResult.wxml-->
-<text>pages/evaResult/evaResult.wxml</text>
+<view class="container">
+  <view class="title">{{scaleTitle}}</view>
+  <view class="line"></view>
+  <block wx:if="{{scaleTitle === '状态与特质性孤独量表'}}">
+    <view class="result-item" wx:key="index">
+      <view class="body-text">{{result[0].before}}<text class="score">{{score}}</text>分{{result[0].after}}</view>
+      <view class="body-container">
+        <block wx:for="{{result[0].body}}" wx:for-item="bodyItem" wx:key="bodyIndex">
+          <view class="body-item" wx:if="{{index === bodyIndex[0]}}">
+            <view class="body-text" wx:for="{{bodyItem}}" wx:for-item="bodyText" wx:key="bodyTextIndex">{{bodyText}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="result-item" wx:key="index">
+      <view class="body-text">{{result[1].before}}<text class="score">{{score_1}}</text>分{{result[1].after}}</view>
+      <view class="body-container">
+        <block wx:for="{{result[1].body}}" wx:for-item="bodyItem" wx:key="bodyIndex">
+          <view class="body-item" wx:if="{{index === bodyIndex[1]}}">
+            <view class="body-text" wx:for="{{bodyItem}}" wx:for-item="bodyText" wx:key="bodyTextIndex">{{bodyText}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </block>
+
+  <block wx:elif="{{scaleTitle === '社交焦虑量表（LSAS）'}}">
+    <view class="result-item">
+      <view class="body-text">{{result.before}}<text class="score">{{score}}</text>分。</view>
+      <view class="body-container">
+        <block wx:for="{{result.body}}" wx:for-item="bodyItem" wx:for-index="index" wx:key="bodyIndex">
+          <view class="body-item" wx:if="{{index === bodyIndex}}">
+            <view class="body-text" wx:for="{{bodyItem}}" wx:for-item="bodyText" wx:key="bodyTextIndex">{{bodyText}}</view>
+          </view>
+        </block>
+      </view>
+      <text>{{result.end}}</text>
+    </view>
+  </block>
+
+  <block wx:elif="{{scaleTitle === '儿童社交焦虑量表（SASC）' || scaleTitle === '交往焦虑量表（IAS）' || scaleTitle === '9条目患者健康问卷(PHQ-9)'}}">
+    <view class="result-item">
+      <view class="before" wx:if="{{scaleTitle === '儿童社交焦虑量表（SASC）'}}">
+        <view class="body-text">{{result.before[0]}}</view>
+        <view class="body-text">{{result.before[1]}}<text class="score">{{total}}</text>{{result.before[2]}}<text class="score">{{score}}</text>{{result.before[3]}}<text class="score">{{score_1}}</text>分。</view>
+      </view>
+      <view class="before" wx:elif="{{scaleTitle === '交往焦虑量表（IAS）'}}">
+        <view class="body-text">{{result.before[0]}}</view>
+        <view class="body-text">{{result.before[1]}}<text class="score">{{score}}</text>分。</view>
+      </view>
+      <view class="before" wx:else>
+        <view class="body-text">{{result.before[0]}}<text class="score">{{score}}</text>{{result.before[1]}}</view>
+      </view>
+      <view class="body-container">
+        <block wx:for="{{result.body}}" wx:for-item="bodyItem" wx:for-index="index" wx:key="bodyIndex">
+          <view class="body-item" wx:if="{{index === bodyIndex}}">
+            <view class="body-text" wx:for="{{bodyItem}}" wx:for-item="bodyText" wx:key="bodyTextIndex">{{bodyText}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </block>
+
+  <block wx:else>
+    <view class="result-item">
+      <text>{{result.before}}<text class="score">{{score}}</text>分。</text>
+      <view class="body-container">
+        <block wx:for="{{result.body}}" wx:for-item="bodyItem" wx:for-index="index" wx:key="bodyIndex">
+          <view class="body-item" wx:if="{{index === bodyIndex}}">
+            <view class="body-text" wx:for="{{bodyItem}}" wx:for-item="bodyText" wx:key="bodyTextIndex">{{bodyText}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </block>
+</view>

@@ -1,1 +1,41 @@
 /* pages/evaResult/evaResult.wxss */
+.container {
+  padding: 50rpx;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 40rpx;
+  margin-bottom: 10rpx;
+}
+
+.line {
+  width: 100%;
+  border-top: 1rpx solid rgb(139, 139, 139); 
+  margin-top: 20rpx; 
+  margin-bottom: 40rpx; 
+}
+
+.result-item {
+  margin-bottom: 40rpx;
+  font-size: 35rpx;
+}
+
+.score {
+  font-size: 42rpx;
+  font-weight: bold;
+  color: crimson;
+}
+
+.body-container {
+  margin-top: 30rpx;
+  font-size: 35rpx;
+}
+
+.body-item {
+  margin-top: 10rpx;
+}
+
+.body-text {
+  margin-bottom: 30rpx;
+}

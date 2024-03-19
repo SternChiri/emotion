@@ -84,12 +84,13 @@ Page({
         currentItemIndex: currentIndex
       });
     } else {
-      const score = this.data.score;
-      const score_1 = this.data.score_1;
-      this.derivedScore(score);
-      updateUserRecord(openid, this.data.scaleId, this.data.scaleTitle, score, score_1);
-      wx.navigateTo({
-        url: '/pages/evaResult/evaResult?id=' + this.data.scaleId + '&score=' + score + '&score_1=' + score_1
+      this.derivedScore(this.data.score).then(() => {
+        const score = this.data.score;
+        const score_1 = this.data.score_1;
+        updateUserRecord(openid, this.data.scaleId, this.data.scaleTitle, score, score_1);
+        wx.navigateTo({
+          url: '/pages/evaResult/evaResult?id=' + this.data.scaleId + '&score=' + score + '&score_1=' + score_1
+        });
       });
     }
   },
@@ -102,14 +103,21 @@ Page({
         deScore = Math.floor(1.25 * score);
         break;
       case '抑郁状态问卷（DSI）':
-        deScore = (score / 80);
+        deScore = (Math.floor(score) / 80);
+        console.log('deScore:', deScore)
         break;
       default:
         deScore = score;
         break;
     };
-    this.setData({
-      score: deScore
+
+    return new Promise((resolve, reject) => {
+      this.setData({
+        score: deScore
+      }, () => {
+        console.log('score: ', this.data.score);
+        resolve();
+      });
     });
   },
 
@@ -166,7 +174,7 @@ Page({
           score += buttonIndex;
         } else {
           score_1 += buttonIndex;
-        };        
+        };
         break;
       case 'likert-4':
         if (scaleTitle === '抑郁状态问卷（DSI）' || scaleTitle === '焦虑自评量表（SAS）' || scaleTitle === '抑郁自评量表（SDS）') {
@@ -229,7 +237,7 @@ async function updateUserRecord(openid, scaleId, scaleTitle, score, score_1) {
       const scaleIndex = userData.evaData.findIndex(item => item.scaleId === scaleId);
       if (scaleIndex !== -1) {
         // 如果存在，则将新的分数数据追加到该记录的 scoreList 数组中
-        if (scaleTitle === '状态与特质性孤独量表'  || scaleTitle === '儿童社交焦虑量表（SASC）') {
+        if (scaleTitle === '状态与特质性孤独量表' || scaleTitle === '儿童社交焦虑量表（SASC）') {
           userData.evaData[scaleIndex].scoreList.push({
             time: new Date(),
             score: score,
