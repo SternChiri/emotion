@@ -10,6 +10,7 @@
   width: 100rpx;
   height: 100rpx;
   background-color: rgb(26, 79, 236);
+  border-radius: 50%; /* 将动画元素变为圆形 */
 }
 
 .button-container {
@@ -18,4 +19,8 @@
   /* 距离内容底部的距离 */
   left: 50%;
   transform: translateX(-50%)
+}
+.breath-text{
+  position: absolute;
+  bottom:1000rpx
 }
