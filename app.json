@@ -8,7 +8,9 @@
     "pages/evaResult/evaResult",
     "pages/breathe/breathe",
     "pages/meditation/meditation",
-    "pages/music/music"
+    "pages/music/music",
+    "pages/massage/massage",
+    "pages/anxiety/anxiety"
   ],
   "window": {
     "backgroundTextStyle": "light",

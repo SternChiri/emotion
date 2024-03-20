@@ -30,4 +30,14 @@ Page({
       url: '/pages/music/music',
     })
   },
+  toMassage(){
+    wx.navigateTo({
+      url: '/pages/massage/massage',
+    })
+  },
+  toAnxiety(){
+    wx.navigateTo({
+      url: '/pages/anxiety/anxiety',
+    })
+  },
 })
