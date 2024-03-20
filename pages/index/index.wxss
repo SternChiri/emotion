@@ -224,7 +224,7 @@
   width: 120rpx;
   height: 120rpx;
   border-radius: 50%;
-  background-color: rgb(250, 119, 119);
+  background-color: #6EC6FF;
   box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: center;
@@ -248,14 +248,12 @@
 
 .float-window {
   background-color: #fff;
-  width: 630rpx;
-  height: 1000rpx;
+  width: 600rpx;
+  height: 950rpx;
   border-radius: 20rpx;
   box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.3);
   display: block;
-  overflow: hidden;
-  overflow-y: scroll;
-  padding: 30rpx;
+  padding: 40rpx;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -263,32 +261,97 @@
   z-index: 1;
 }
 
-.float-window .submit-button {
-  position: absolute;
-  bottom: 50rpx;
-  /* 距离内容底部的距离 */
-  left: 50%;
-  transform: translateX(-50%);
+.float-window-content {
+  font-size: 30rpx;
+  margin-left: 10rpx;
+  margin-bottom: 20rpx;
+  font-weight: bold;
+}
+
+.slider-container {
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  padding: 8rpx;
+}
+
+.slider-guide {
+  font-size: 30rpx;
+  margin-left: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.slider-value-box {
+  font-size: 28rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.slider-value {
+  font-size: 28rpx;
+  padding-inline: 13rpx;
+  padding-block: 3rpx;
+  border: 1rpx solid rgb(184, 184, 184);
+  border-radius: 20rpx;
+  color: #333333;
+}
+
+.custom-slider {
+  height: 25rpx;
+  border-radius: 20rpx;
+  margin-bottom: 25rpx;
+}
+
+.meaning-container {
+  margin-top: 40rpx;
+  margin-left: 15rpx;
+}
+
+.selected-meaning-general {
+  font-size: 30rpx;
+  padding-inline: 13rpx;
+  padding-block: 5rpx;
+  border-radius: 13rpx;
+  background-color: rgb(235, 235, 235);
+  color: #333333;
+  margin-right: 20rpx;
+}
+
+.selected-meaning-active {
+  font-size: 30rpx;
+  padding-inline: 13rpx;
+  padding-block: 5rpx;
+  border-radius: 13rpx;
+  background-color: #6EC6FF;
+  color: #ffffff;
+  margin-right: 20rpx;
+}
+
+.idea {
+  display: flex;
+  justify-content: center;
+  margin-top: 40rpx;
+  padding: 10rpx;
+}
+
+.input-mood {
+  border: 1rpx solid #ccc;
+  padding: 20rpx;
+  border-radius: 20rpx;
+  height: 220rpx;
+  background-color: rgb(249, 249, 249);
 }
 
 .submit-button {
-  background-color: #007bff;
-  /* 设置背景颜色为蓝色 */
+  background-color: #42a5f5;
   color: #ffffff;
-  /* 设置文字颜色为白色 */
   border: none;
-  /* 移除按钮边框 */
   padding: 20rpx 20rpx;
-  /* 设置按钮内边距 */
-  border-radius: 10rpx;
-  /* 设置按钮边框圆角 */
+  border-radius: 25rpx;
   font-size: 35rpx;
-  /* 设置文字大小 */
-}
-
-.submit-button:hover {
-  background-color: #0056b3;
-  /* 设置悬浮时的背景颜色 */
+  position: absolute;
+  bottom: 70rpx;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .line {
@@ -296,58 +359,4 @@
   width: 100%;
   margin-top: 10rpx;
   margin-bottom: 10rpx;
-}
-
-/* WXSS */
-.input-mood {
-  width: 80%;
-  /* 输入框宽度 */
-  border: 1px solid #ccc;
-  /* 输入框边框 */
-  margin-top: 10px;
-  /* 与标题的间距 */
-  padding: 5rpx;
-  /* 内边距 */
-}
-
-.slider-container {
-  position: relative;
-  margin-top: 50rpx;
-  margin-bottom: 50rpx;
-  /* 添加间距 */
-}
-
-.slider-value {
-  position: absolute;
-  left: -10rpx;
-  /* 调整数字显示在滑动条的左侧 */
-  top: 50%;
-  /* 调整垂直居中 */
-  transform: translateY(-50%);
-}
-
-.custom-slider {
-  width: calc(100% - 150rpx);
-  /* 使滑动条与文本对齐 */
-  margin-left: 40rpx;
-  /* 保证滑动条与文本对齐 */
-  background-color: #f0f0f0;
-  /* 设置滑动条轨道的背景色 */
-  border-radius: 10px;
-  /* 设置滑动条轨道的边框半径 */
-}
-
-.custom-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 20rpx;
-  /* 设置滑块的宽度 */
-  height: 20rpx;
-  /* 设置滑块的高度 */
-  background-color: #007bff;
-  /* 设置滑块的背景色 */
-  border-radius: 50%;
-  /* 将滑块设为圆形 */
-  cursor: pointer;
-  /* 设置鼠标样式为手型 */
 }

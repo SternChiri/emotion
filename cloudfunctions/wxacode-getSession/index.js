@@ -17,13 +17,15 @@ exports.main = async (event, context) => {
     // 如果存在相同 openid 的记录，则不需要创建新记录
     if (queryResult.data.length > 0) {
       return {
-        openid: queryResult.data[0]._openid,
+        openid: queryResult.data[0]._openid
       };
     } else {
       // 不存在相同 openid 的记录，则创建新记录
       const result = await db.collection('user').add({
         data: {
-          _openid: OPENID
+          _openid: OPENID,
+          evaData: [],
+          diary: []
         }
       });
       return {

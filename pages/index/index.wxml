@@ -67,22 +67,30 @@
   <!-- 心情日记悬浮窗 -->
   <view wx:if="{{showFloatWindow}}" class="float-mask" bindtap="closeFloatWindow"></view>
   <view class="float-window" wx:if="{{ showFloatWindow }}">
-    <view class="float-window-content">心情日记</view>
+    <view class="float-window-content">你现在…</view>
     <view class="slider-container">
-      <text class="slider-value">{{selectedWord1}}</text>
-      <slider class="custom-slider" min="-5" max="5" value="{{selectedValue1}}" block-size="20" bindchange="handleSliderChange1"></slider>
+      <view class="slider-guide">感到愉悦的程度：</view>
+      <slider class="custom-slider" min="-4" max="4" value="{{selectedValue1}}" block-size="20" activeColor=" #6EC6FF" bindchange="handleSliderChange1" bindchanging="hdSldChanging1"></slider>
+      <view class="slider-value-box">
+        <view class="slider-value">{{selectedWord1}}</view>
+      </view>
     </view>
-
     <view class="slider-container">
-      <text class="slider-value">{{selectedWord2}}</text>
-      <slider class="custom-slider" min="-5" max="5" value="{{selectedValue2}}" block-size="20" bindchange="handleSliderChange2"></slider>
+      <view class="slider-guide">唤醒水平：</view>
+      <slider class="custom-slider" min="-4" max="4" value="{{selectedValue2}}" block-size="20" activeColor=" #6EC6FF" bindchange="handleSliderChange2" bindchanging="hdSldChanging2"></slider>
+      <view class="slider-value-box">
+        <view class="slider-value">{{selectedWord2}}</view>
+      </view>
     </view>
     <view class="meaning-container">
-      <text>当前组合意义：</text>
-      <text class="selected-meaning">{{selectedMeaning}}</text>
+      <block wx:for="{{selectedMeaning}}" wx:key="index">
+        <text class="selected-meaning-{{selectedItems[index] ? 'active' : 'general'}}" data-index="{{index}}" data-value="{{item}}" bindtap="toggleSelectedMeaning" hidden="{{item === null}}">{{item}}</text>
+      </block>
     </view>
     <!-- 输入心情 -->
-    <textarea class="input-mood" placeholder="输入你的心情..." value="{{moodInputValue}}" bindinput="handleInput"></textarea>
-    <button class="submit-button" bindtap="handleSubmit">提交</button>
+    <view class="idea">
+      <textarea class="input-mood" placeholder="在这里记录你此刻所想..." value="{{moodInputValue}}" bindinput="handleInput"></textarea>
+    </view>
+    <button class="submit-button" bindtap="handleSubmit">记录</button>
   </view>
 </view>
