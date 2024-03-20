@@ -5,7 +5,19 @@
   padding: 20rpx;
   position: relative;
 }
-
+.square-button {
+  position: absolute; /* 设置为绝对定位 */
+  top: 50rpx; /* 距离页面顶部 */
+  left: 400rpx; /* 距离页面左侧 */
+  width: 200rpx;
+  height: 200rpx;
+  line-height: 150rpx;
+  text-align: center;
+  background-color: #00ff15;
+  color: #ffffff;
+  border: none;
+  border-radius: 50rpx;
+}
 .square1-button {
   position: absolute; /* 设置为绝对定位 */
   top: 50rpx; /* 距离页面顶部 */
@@ -20,19 +32,7 @@
   border-radius: 50rpx;
 }
 
-.square-button {
-  position: absolute; /* 设置为绝对定位 */
-  top: 50rpx; /* 距离页面顶部 */
-  left: 400rpx; /* 距离页面左侧 */
-  width: 200rpx;
-  height: 200rpx;
-  line-height: 150rpx;
-  text-align: center;
-  background-color: #00ff15;
-  color: #ffffff;
-  border: none;
-  border-radius: 50rpx;
-}
+
 
 .square2-button {
   position: absolute; /* 设置为绝对定位 */

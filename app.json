@@ -6,7 +6,11 @@
     "pages/scale/scale",
     "pages/adjust/adjust",
     "pages/evaResult/evaResult",
-    "pages/breathe/breathe"
+    "pages/breathe/breathe",
+    "pages/meditation/meditation",
+    "pages/music/music",
+    "pages/massage/massage",
+    "pages/anxiety/anxiety"
   ],
   "window": {
     "backgroundTextStyle": "light",
