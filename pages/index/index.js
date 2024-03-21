@@ -14,15 +14,15 @@ Page({
     selectedWord1: '中立',
     selectedWord2: '中立',
     meanings: [
-      "组合1", "组合2", "组合3", "组合4", "组合5", "组合6", "组合7", "组合8", "组合9",
-      "组合10", "组合11", "组合12", "组合13", "组合14", "组合15", "组合16", "组合17", "组合18",
-      "组合19", "组合20", "组合21", "组合22", "组合23", "组合24", "组合25", "组合26", "组合27",
-      "组合28", "组合29", "组合30", "组合31", "组合32", "组合33", "组合34", "组合35", "组合36",
-      "组合37", "组合38", "组合39", "组合40", "组合41", "组合42", "组合43", "组合44", "组合45",
-      "组合46", "组合47", "组合48", "组合49", "组合50", "组合51", "组合52", "组合53", "组合54",
-      "组合55", "组合56", "组合57", "组合58", "组合59", "组合60", "组合61", "组合62", "组合63",
-      "组合64", "组合65", "组合66", "组合67", "组合68", "组合69", "组合70", "组合71", "组合72",
-      "组合73", "组合74", "组合75", "组合76", "组合77", "组合78", "组合79", "组合80", "组合81"
+      "绝望", "冷漠", "麻木", "消沉", "憔悴", "担忧", "痛苦", "悲痛", "癫狂",
+      "抑郁", "压抑", "悲伤", "沉重", "厌烦", "生气", "愤怒", "暴怒", "狂怒",
+      "郁闷", "苦闷", "失落", "沮丧", "不安", "忧虑", "焦虑", "烦躁", "暴躁",
+      "萎靡", "灰心", "泄气", "无奈", "失意", "紧张", "害怕", "惶恐", "恐惧",
+      "困倦", "迷糊", "疲倦", "慵懒", "平静", "惊讶", "惊奇", "震惊", "激动",
+      "安定", "安闲", "安逸", "安静", "淡定", "舒畅", "开心", "欢欣", "兴奋",
+      "安宁", "平和", "镇定", "宁静", "舒适", "雀跃", "愉快", "惊喜", "亢奋",
+      "安详", "自在", "放松", "安心", "欣慰", "欣喜", "快乐", "狂喜", "热情",
+      "祥和", "陶醉", "惬意", "满足", "满意", "欢乐", "高兴", "幸福", "热忱"
     ],
     selectedMeaning: [], // 当前选定的组合
     words1: {
@@ -83,15 +83,49 @@ Page({
       fail: err => {
         console.error('获取article数据失败：', err)
       }
-    })
+    });
+    this.checkDiaryExistence()
   },
 
-  goToDetailPage() {
-    // 处理点击“查看详情”按钮的逻辑
-    wx.navigateTo({
-      url: '/pages/detail/detail',
-    });
+  checkDiaryExistence: function () {
+    const openid = wx.getStorageSync('openid');
+    const today = new Date().toLocaleDateString();
+    db.collection('user')
+      .where({
+        _openid: openid
+      })
+      .get()
+      .then(res => {
+        const diary = res.data[0].diary;
+        if (diary.length > 0) {
+          const latestDiary = diary[diary.length - 1];
+          const diaryDate = new Date(latestDiary.time).toLocaleDateString();
+          if (diaryDate === today) {
+            this.setData({
+              latestDiary: latestDiary,
+              isDiaryExist: true
+            });
+          } else {
+            this.setData({
+              isDiaryExist: false
+            });
+          }
+        } else {
+          this.setData({
+            isDiaryExist: false
+          });
+        }
+      })
+      .catch(err => {
+        console.error("查询用户日记失败", err);
+      });
   },
+
+  goToDiary() {
+    wx.navigateTo({
+      url: '/pages/diary/diary',
+    });
+  },  
 
   openWindow() {
     this.setData({
@@ -140,7 +174,9 @@ Page({
   hdSldChanging1: function (event) {
     const value = event.detail.value;
     this.setData({
-      selectedWord1: this.data.words1[value.toString()]
+      selectedWord1: this.data.words1[value.toString()],
+      clickedMeaning: [],
+      selectedItems: []
     });
   },
 
@@ -164,7 +200,9 @@ Page({
   hdSldChanging2: function (event) {
     const value = event.detail.value;
     this.setData({
-      selectedWord2: this.data.words2[value.toString()]
+      selectedWord2: this.data.words2[value.toString()],
+      clickedMeaning: [],
+      selectedItems: []
     });
   },
 
@@ -221,12 +259,18 @@ Page({
         diary: db.command.push(diaryObject)
       },
       success: function (res) {
+        wx.showToast({
+          title: '记录成功！',
+          icon: 'success',
+          duration: 1000
+        });
         console.log("成功更新心情日记", res);
       },
       fail: function (err) {
         console.error("更新心情日记失败", err);
       }
     });
+    this.checkDiaryExistence();
     this.closeFloatWindow();
   }
 });

@@ -1,0 +1,25 @@
+<!--pages/diary/diary.wxml-->
+<view class="container">
+  <block wx:for="{{processedDiaryList}}" wx:key="index" wx:for-item="item" wx:for-index="idx">
+    <view wx:if="{{idx === 0 || item.day !== processedDiaryList[idx - 1].day}}" class="row">
+      <view class="month-box">
+        <view wx:if="{{item.month}}" class="month">{{item.month}}</view>
+        <view class="yue">月</view>
+      </view>
+      <view wx:if="{{idx === 0 || item.year !== processedDiaryList[idx - 1].year}}" class="year">{{item.year}}</view>
+    </view>
+    <view class="diary-item">
+      <view wx:if="{{idx === 0 || item.day !== processedDiaryList[idx - 1].day}}" class="day">{{item.day}}</view>
+      <view wx:else class="day-placeholder"></view>
+      <view class="diary-content">
+        <view class="time">{{item.time}}</view>
+        <view class="emo-words">
+          <block wx:for="{{item.emoWords}}" wx:key="index">
+            <view class="emo-word">{{item}}</view>
+          </block>
+        </view>
+        <view wx:if="{{item.idea}}" class="idea">"{{item.idea}}"</view>
+      </view>
+    </view>
+  </block>
+</view>

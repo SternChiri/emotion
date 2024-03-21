@@ -10,7 +10,8 @@
     "pages/meditation/meditation",
     "pages/music/music",
     "pages/massage/massage",
-    "pages/anxiety/anxiety"
+    "pages/anxiety/anxiety",
+    "pages/diary/diary"
   ],
   "window": {
     "backgroundTextStyle": "light",

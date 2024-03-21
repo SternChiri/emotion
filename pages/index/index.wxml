@@ -4,10 +4,16 @@
   <!-- 心情日记 -->
   <view class="mood-card">
     <view class="date">{{todayDate}}</view>
-    <image class="detail-btn" src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics/right.svg" bindtap="goToDetailPage" />
-    <view class="mood-write" bindtap="openFloatWindow">
+    <image class="detail-btn" src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics/right.svg" bindtap="goToDiary" />
+    <view class="mood-write" bindtap="openFloatWindow" wx:if="{{!isDiaryExist}}">
       <view class="mood-content">
         <view class="mood-text">你今天心情如何？</view>
+      </view>
+    </view>
+    <view class="mood-display" bindtap="goToDiary" wx:else>
+      <view class="mood-content">
+        <view class="mood-text" hidden="{{latestDiary.idea === ''}}">“{{latestDiary.idea}}”</view>
+        <view class="mood-emoWord">{{latestDiary.emoWords.length > 2 ? latestDiary.emoWords[0] + "," + latestDiary.emoWords[1] + "..." : latestDiary.emoWords}}</view>
       </view>
     </view>
   </view>

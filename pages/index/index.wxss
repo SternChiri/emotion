@@ -40,12 +40,21 @@
   color: #333333;
 }
 
+.mood-emoWord {
+  font-size: 80rpx;
+  color: #a1a1a17c;
+  font-weight: bold;
+  position: absolute;
+  bottom: 20rpx;
+  left: 30rpx;
+}
+
 .detail-btn {
   width: 40rpx;
   color: #007aff;
   position: absolute;
-  top: -45%;
-  right: 20rpx;
+  top: -42%;
+  right: 25rpx;
 }
 
 .function-card {

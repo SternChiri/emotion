@@ -150,8 +150,8 @@
 }
 
 .scoreList {
-  margin-bottom: 8rpx;
-  padding: 18rpx;
+  margin-bottom: 10rpx;
+  padding: 17rpx;
   background-color: rgb(247, 247, 247);
   display: flex;
   justify-content: space-between;
@@ -161,13 +161,13 @@
 }
 
 .time {
-  font-size: 32rpx;
+  font-size: 30rpx;
   color: #333;
   margin-left: 10rpx; 
 }
 
 .score {
-  font-size: 32rpx;
+  font-size: 30rpx;
   color: #00bfff;
   margin-right: 10rpx; 
 }
