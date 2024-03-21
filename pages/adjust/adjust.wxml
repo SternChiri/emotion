@@ -1,9 +1,14 @@
 <!--pages/adjust/adjust.wxml-->
 <view class="button-container">
-  <button class="square-button" bind:tap="toBreathe">呼吸</button>
-  <button class="square1-button" bind:tap="toMeditation">冥想</button>
-  <button class="square2-button" bind:tap="toMusic">音乐</button>
-  <button class="square3-button">温暖放松</button>
-  <button class="square4-button"bind:tap="toMassage">按摩</button>
-  <button class="square5-button"bind:tap="toAnxiety">焦虑</button>
+  <view class="head">
+    <view class="buttonMe" bindtap="toMeditation">冥想</view>
+  </view>
+  <view class="row">
+    <button class="buttonB" bindtap="toBreathe">呼吸</button>
+    <button class="buttonMu" bindtap="toMusic">音乐</button>
+  </view>
+  <view class="row">
+    <button class="buttonMa" bindtap="toMassage">按摩</button>
+    <button class="buttonA" bindtap="toAnxiety">焦虑</button>
+  </view>
 </view>
