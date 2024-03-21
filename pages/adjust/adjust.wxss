@@ -14,8 +14,8 @@
   width: 670rpx;
   height: 350rpx;
   line-height: 250rpx;
-  background-color: #2600ff;
-  color: #ffffff;
+  text-align: center;
+  background-image: url('cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics-qx/ME.jpg');
   border-radius: 50rpx;
 }
 
@@ -31,7 +31,7 @@
   height: 300rpx;
   line-height: 150rpx;
   text-align: center;
-  background-color: #00ff15;
+  background-color: #78e681;
   color: #ffffff;
   border: none;
   border-radius: 50rpx;
@@ -42,7 +42,7 @@
   height: 300rpx;
   line-height: 150rpx;
   text-align: center;
-  background-color: #ff002b;
+  background-color: #f18093;
   color: #ffffff;
   border-radius: 50rpx;
 }
@@ -52,7 +52,7 @@
   height: 300rpx;
   line-height: 150rpx;
   text-align: center;
-  background-color: #ff002b;
+  background-color: #d4ec7c;
   color: #ffffff;
   border-radius: 50rpx;
 }
@@ -62,7 +62,7 @@
   height: 300rpx;
   line-height: 150rpx;
   text-align: center;
-  background-color: #ff002b;
+  background-color: #75c8f8;
   color: #ffffff;
   border-radius: 50rpx;
 }

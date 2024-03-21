@@ -125,7 +125,7 @@ Page({
     wx.navigateTo({
       url: '/pages/diary/diary',
     });
-  },  
+  },
 
   openWindow() {
     this.setData({
@@ -159,7 +159,14 @@ Page({
     const value1 = value; // 将滑动条的值赋给 value1
     const value2 = this.data.selectedValue2; // 获取滑动条2的值
     const index = (value1 + 4) * 9 + (value2 + 4); // 计算组合的索引
-    const indexes = [index, index - 1, index + 1, index - 9, index + 9]; // 获取选定及其周围的索引
+    let indexes;
+    if ([9, 18, 27, 36, 45, 54, 63, 72].includes(index)) {
+      indexes = [index, index + 1, index - 9, index + 9];
+    } else if ([8, 17, 26, 35, 44, 53, 62, 71].includes(index)) {
+      indexes = [index, index - 1, index - 9, index + 9];
+    } else {
+      indexes = [index, index - 1, index + 1, index - 9, index + 9];
+    }
     const selectedMeaning = indexes.map(idx => this.data.meanings[idx]); // 获取选定及其周围的值，并存入数组
 
     this.setData({
@@ -185,7 +192,14 @@ Page({
     const value2 = value;
     const value1 = this.data.selectedValue1;
     const index = (value1 + 4) * 9 + (value2 + 4);
-    const indexes = [index, index - 1, index + 1, index - 9, index + 9];
+    let indexes;
+    if ([9, 18, 27, 36, 45, 54, 63, 72].includes(index)) {
+      indexes = [index, index + 1, index - 9, index + 9];
+    } else if ([8, 17, 26, 35, 44, 53, 62, 71].includes(index)) {
+      indexes = [index, index - 1, index - 9, index + 9];
+    } else {
+      indexes = [index, index - 1, index + 1, index - 9, index + 9];
+    }
     const selectedMeaning = indexes.map(idx => this.data.meanings[idx]);
 
     this.setData({
