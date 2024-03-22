@@ -30,7 +30,8 @@ App({
           console.error('获取 openid 失败', err);
         }
       });
-    }
+    };
+    console.log(wx.getSystemInfoSync().wxsSupport);
   },
   globalData: {
     userInfo: null

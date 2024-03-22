@@ -63,7 +63,7 @@
   border: 1rpx solid rgb(70, 70, 70, 0.3);
   box-shadow: 8rpx 5rpx 10rpx rgba(0, 0, 0, 0.2);
   padding: 20rpx;
-  width: 100%;
+  width: 83%;
 }
 
 .time {

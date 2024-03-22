@@ -12,7 +12,7 @@
     </view>
     <view class="mood-display" bindtap="goToDiary" wx:else>
       <view class="mood-content">
-        <view class="mood-text" hidden="{{latestDiary.idea === ''}}">“{{latestDiary.idea}}”</view>
+        <view class="mood-text" hidden="{{latestDiary.idea === ''}}">“{{latestDiary.idea}}</view><view class="mood-text">”</view>
         <view class="mood-emoWord">{{latestDiary.emoWords.length > 2 ? latestDiary.emoWords[0] + "," + latestDiary.emoWords[1] + "..." : latestDiary.emoWords}}</view>
       </view>
     </view>
