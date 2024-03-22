@@ -13,9 +13,24 @@
 .buttonMe {
   width: 670rpx;
   height: 350rpx;
-  line-height: 250rpx;
-  text-align: center;
   border-radius: 50rpx;
+}
+
+.Me-image {
+  border-radius: 50rpx;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.Me {
+  margin-top: 20rpx;
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #ffffff;
+  position: fixed;
+  top: 100rpx;
+  left: 300rpx;
 }
 
 .row {
@@ -28,40 +43,83 @@
 .buttonB {
   width: 300rpx;
   height: 300rpx;
-  line-height: 150rpx;
-  text-align: center;
-  background-color: #78e681;
-  color: #ffffff;
-  border: none;
   border-radius: 50rpx;
+}
+.B-image {
+  border-radius: 50rpx;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.B {
+  margin-top: 20rpx;
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #000000;
+  position: fixed;
+  top: 500rpx;
+  left: 120rpx;
 }
 
 .buttonMu {
   width: 300rpx;
   height: 300rpx;
-  line-height: 150rpx;
-  text-align: center;
-  background-color: #f18093;
-  color: #ffffff;
   border-radius: 50rpx;
+}
+.Mu-image {
+  border-radius: 50rpx;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.Mu {
+  margin-top: 20rpx;
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #ffffff;
+  position: fixed;
+  top: 500rpx;
+  left: 500rpx;
 }
 
 .buttonMa {
   width: 300rpx;
   height: 300rpx;
-  line-height: 150rpx;
-  text-align: center;
-  background-color: #d4ec7c;
-  color: #ffffff;
   border-radius: 50rpx;
+}
+.Ma-image {
+  border-radius: 50rpx;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.Ma {
+  margin-top: 20rpx;
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #ffffff;
+  position: fixed;
+  bottom: 500rpx;
+  left: 120rpx;
 }
 
 .buttonA {
   width: 300rpx;
   height: 300rpx;
-  line-height: 150rpx;
-  text-align: center;
-  background-color: #75c8f8;
-  color: #ffffff;
   border-radius: 50rpx;
+}
+.A-image {
+  border-radius: 50rpx;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.A {
+  margin-top: 20rpx;
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #111e1f;
+  position: fixed;
+  bottom: 500rpx;
+  left: 500rpx;
 }

@@ -1,14 +1,34 @@
 <!--pages/adjust/adjust.wxml-->
 <view class="button-container">
   <view class="head">
-    <view class="buttonMe" bindtap="toMeditation">冥想</view>
+    <navigator class="buttonMe" url="/pages/meditation/meditation">
+      <image class="Me-image" src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics-qx/Me.jpg">
+        <view class="Me">冥想</view>
+      </image>
+    </navigator>
   </view>
   <view class="row">
-    <button class="buttonB" bindtap="toBreathe">呼吸</button>
-    <button class="buttonMu" bindtap="toMusic">音乐</button>
+    <navigator class="buttonB" url="/pages/breathe/breathe">
+      <image class="B-image" src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics-qx/B.jpg">
+        <view class="B">呼吸</view>
+      </image>
+    </navigator>
+    <navigator class="buttonMu" url="/pages/music/music">
+      <image class="Mu-image" src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics-qx/Mu.jpg">
+        <view class="Mu">音乐</view>
+      </image>
+    </navigator>
   </view>
   <view class="row">
-    <button class="buttonMa" bindtap="toMassage">按摩</button>
-    <button class="buttonA" bindtap="toAnxiety">焦虑</button>
+    <navigator class="buttonMa" url="/pages/massage/massage">
+      <image class="Ma-image" src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics-qx/Ma.jpg">
+        <view class="Ma">按摩</view>
+      </image>
+    </navigator>
+    <navigator class="buttonA" url="/pages/anxiety/anxiety">
+      <image class="A-image" src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics-qx/A.jpg">
+        <view class="A">焦虑</view>
+      </image>
+    </navigator>
   </view>
 </view>
