@@ -38,6 +38,10 @@
 .mood-text {
   font-size: 45rpx;
   color: #333333;
+  padding: 20rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .mood-emoWord {
