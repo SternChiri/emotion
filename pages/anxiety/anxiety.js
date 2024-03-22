@@ -1,66 +1,25 @@
-// pages/anxiety/anxiety.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    urls: [
+      {
+        title: '焦虑症的症状和治疗方法',
+        url: 'https://www.mayoclinic.org/diseases-conditions/anxiety/symptoms-causes/syc-20350961'
+      },
+      {
+        title: '如何应对焦虑',
+        url: 'https://www.webmd.com/anxiety-panic/guide/anxiety-management'
+      },
+      {
+        title: '焦虑症的治疗方法',
+        url: 'https://www.healthline.com/health/anxiety/treatments'
+      },
+    ]
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  onItemClick: function(e) {
+    const url = e.currentTarget.dataset.url;
+    wx.navigateTo({
+      url: `/pages/web/web?url=${url}`
+    });
   }
-})
+});

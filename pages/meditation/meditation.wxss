@@ -1,1 +1,24 @@
-/* pages/meditation/meditation.wxss */
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.meditation-player {
+  width: 100%;
+  height: 50%;
+}
+
+.control-panel {
+  width: 100%;
+  height: 50%;
+}
+
+.button {
+  width: 100px;
+  height: 50px;
+}
+
+.time-indicator {
+  width: 100%;
+  height: 50px;
+}

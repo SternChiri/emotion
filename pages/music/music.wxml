@@ -1,2 +1,10 @@
-<!--pages/music/music.wxml-->
-<text>pages/music/music.wxml</text>
+<view class="container">
+  <view class="music-player">
+    <audio controls src="{{musicUrl}}"></audio>
+  </view>
+  <view class="control-panel">
+    <button bindtap="playMusic">播放</button>
+    <button bindtap="pauseMusic">暂停</button>
+    <button bindtap="stopMusic">停止</button>
+  </view>
+</view>

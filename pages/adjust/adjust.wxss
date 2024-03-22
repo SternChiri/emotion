@@ -15,7 +15,6 @@
   height: 350rpx;
   line-height: 250rpx;
   text-align: center;
-  background-image: url('cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics-qx/ME.jpg');
   border-radius: 50rpx;
 }
 

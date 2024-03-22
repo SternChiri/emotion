@@ -1,66 +1,48 @@
-// pages/meditation/meditation.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    musicUrl: 'cloud://your-cloud-storage-bucket/meditation.mp3',
+    isPlaying: false,
+    currentTime: 0,
+    duration: 0,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
+  onLoad: function() {
+    const audio = this.selectComponent('.meditation-player audio');
+    audio.onCanplay(() => {
+      this.setData({
+        duration: audio.duration,
+      });
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  playMusic: function() {
+    const audio = this.selectComponent('.meditation-player audio');
+    audio.play();
+    this.setData({
+      isPlaying: true,
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  pauseMusic: function() {
+    const audio = this.selectComponent('.meditation-player audio');
+    audio.pause();
+    this.setData({
+      isPlaying: false,
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
+  stopMusic: function() {
+    const audio = this.selectComponent('.meditation-player audio');
+    audio.stop();
+    this.setData({
+      isPlaying: false,
+      currentTime: 0,
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
+  onTimeUpdate: function(e) {
+    this.setData({
+      currentTime: e.detail.currentTime,
+    });
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
-  }
-})
+});

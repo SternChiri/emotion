@@ -1,2 +1,11 @@
-<!--pages/massage/massage.wxml-->
-<text>pages/massage/massage.wxml</text>
+<view class="container">
+  <view class="list">
+    <block wx:for="{{urls}}" wx:key="index">
+      <view class="item">
+        <a href="{{item.url}}">
+          <text>{{item.title}}</text>
+        </a>
+      </view>
+    </block>
+  </view>
+</view>

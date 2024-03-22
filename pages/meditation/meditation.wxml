@@ -1,2 +1,13 @@
-<!--pages/meditation/meditation.wxml-->
-<text>pages/meditation/meditation.wxml</text>
+<view class="container">
+  <view class="meditation-player">
+    <audio controls src="{{musicUrl}}" onTimeUpdate="onTimeUpdate"></audio>
+  </view>
+  <view class="control-panel">
+    <button bindtap="playMusic">播放</button>
+    <button bindtap="pauseMusic">暂停</button>
+    <button bindtap="stopMusic">停止</button>
+  </view>
+  <view class="time-indicator">
+    {{currentTime}} / {{duration}}
+  </view>
+</view>
