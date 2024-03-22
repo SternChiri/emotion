@@ -26,6 +26,8 @@
     "request": 10000,
     "downloadFile": 10000
   },
-  "modules": ["wxs"],
+  "modules": [
+    "wxs"
+  ],
   "urlCheck": "false"
 }
