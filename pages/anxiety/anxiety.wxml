@@ -1,9 +1,8 @@
 <view class="container">
   <view class="list">
-    <block wx:for="{{urls}}" wx:key="index">
-      <view class="item" data-url="{{item.url}}" bindtap="onItemClick">
+    <block wx:for="{{articles}}" wx:key="_id">
+      <view class="item" bindtap="navigateToAnxietyPage" data-item="{{item}}">
         <view class="title">{{item.title}}</view>
-        <view class="url">{{item.url}}</view>
       </view>
     </block>
   </view>

@@ -11,7 +11,8 @@
     "pages/music/music",
     "pages/massage/massage",
     "pages/anxiety/anxiety",
-    "pages/diary/diary"
+    "pages/diary/diary",
+    "pages/anxiety/anxietyArticle"
   ],
   "window": {
     "backgroundTextStyle": "light",

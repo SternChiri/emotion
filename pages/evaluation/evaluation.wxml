@@ -41,7 +41,7 @@
     </cover-view>
     <cover-view class="item-num">- 题目数：{{ floatWindowItem.item_num }}题</cover-view>
     <cover-view class="record">
-    <cover-view class="description">- 作答记录：</cover-view>
+      <cover-view class="description">- 作答记录：</cover-view>
       <block wx:for="{{sortedScoreList}}" wx:key="index">
         <view class="scoreList" bindtap="navigateToResult" data-index="{{index}}">
           <view class="time">{{item.time}}</view>

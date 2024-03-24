@@ -18,8 +18,6 @@
         <view class="Me">正念冥想</view>
       </image>
     </navigator>
-
-
   </view>
   <view class="row">
     <navigator class="button" url="/pages/breathe/breathe">

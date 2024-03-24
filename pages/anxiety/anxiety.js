@@ -1,25 +1,36 @@
+// 导入云数据库模块
+const db = wx.cloud.database();
+
 Page({
   data: {
-    urls: [
-      {
-        title: '焦虑症的症状和治疗方法',
-        url: 'https://www.mayoclinic.org/diseases-conditions/anxiety/symptoms-causes/syc-20350961'
-      },
-      {
-        title: '如何应对焦虑',
-        url: 'https://www.webmd.com/anxiety-panic/guide/anxiety-management'
-      },
-      {
-        title: '焦虑症的治疗方法',
-        url: 'https://www.healthline.com/health/anxiety/treatments'
-      },
-    ]
+    articles: [], // 存储文章数据
   },
 
-  onItemClick: function(e) {
-    const url = e.currentTarget.dataset.url;
-    wx.navigateTo({
-      url: `/pages/web/web?url=${url}`
+  // 页面加载时获取文章数据
+  onLoad: function () {
+    this.getArticles();
+  },
+
+  // 获取文章数据
+  getArticles: function () {
+    // 从云数据库中获取anxietyArticle集合的数据
+    db.collection('anxietyArticle').get({
+      success: res => {
+        // 获取成功后将数据存储到页面数据中
+        this.setData({
+          articles: res.data
+        });
+      },
+      fail: err => {
+        // 获取失败时显示错误信息
+        console.error('获取文章数据失败：', err);
+      }
     });
-  }
+  },
+  navigateToAnxietyPage(event) {
+    const item = event.currentTarget.dataset.item;
+    wx.navigateTo({
+      url: '/pages/anxiety/anxietyArticle?id=' + item._id
+    });
+  },
 });
