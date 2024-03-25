@@ -1,10 +1,10 @@
 <view class="container">
   <view class="title">{{anxietyData.title}}</view>
   <block wx:for="{{anxietyData.content}}" wx:key="index">
-    <block wx:for="{{item}}" wx:key="index" wx:for-item="paraItem">
-      <view wx:if="{{paraItem.secTitle}}" class="secTitle">{{paraItem.secTitle}}</view>
-      <view class="para" wx:for="{{paraItem.para}}" wx:key="index">{{paraItem}}</view>
-    </block>
+    <view wx:if="{{item.secTitle !== ''}}"  class="secTitle">{{item.secTitle}}</view>
+    <view wx:for="{{item.para}}" class="para" wx:key="index">{{item}}</view>
   </block>
-  <view class="source">来源：{{anxietyData.source}}</view>
+  <view class="line"></view>
+  <navigator class="source" url="{{anxietyData.source}}">来源：{{anxietyData.source}}</navigator>
+
 </view>

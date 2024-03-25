@@ -24,9 +24,12 @@ Page({
     anxietyCollection.doc(anxietyId).get().then(res => {
       const anxietyData = res.data;
       if (anxietyData) {
+
         this.setData({
           anxietyData: anxietyData,
+
         });
+
       } else {
         console.error('未找到文章');
       }
