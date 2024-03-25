@@ -1,9 +1,20 @@
-<!--pages/breathe/breathe.wxml-->
-<view class="container">
+<!-- breathe.wxml -->
+
+<!-- 显示说明页面 -->
+<view class="container" wx:if="{{showInstruction}}">
+  <text>这是您的说明文本。</text>
+  <button class="button" bindtap="startBreathe">开始呼吸练习</button>
+</view>
+
+<!-- 显示呼吸动画页面 -->
+<view class="container" wx:else>
   <!-- 自定义动画效果 -->
   <view class="custom-animation" animation="{{ animationData }}"></view>
   <!-- 呼吸提示文本 -->
   <view class="breath-text">{{ breathText }}</view>
-  <!-- 启动按钮 -->
+
+  <view class="button-container">
+    <view class="primary" bindtap="startAnimation">开始</view>
+    <view class="warn" bindtap="stopAnimation">停止</view>
+  </view>
 </view>
-<view class="button-container"><button bindtap="startAnimation">开始练习</button></view>

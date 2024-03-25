@@ -1,71 +1,114 @@
 Page({
   data: {
     animationData: {}, // 存储动画数据
-    animationInterval: null, // 存储动画定时器
-    breathText: '' // 存储呼吸提示文本
+    breathText: '', // 存储呼吸提示文本
+    enlargeTimer: null,
+    pauseTimer: null,
+    shrinkTimer: null,
+    showInstruction: true, // 控制是否显示说明页面
+    isBreathing: false // 控制是否正在进行呼吸练习
   },
 
-  // 启动动画按钮点击事件处理函数
-  startAnimation: function () {
-    // 设置初始呼吸提示文本为空
+  // 页面加载时执行的函数
+  onLoad: function () {
+    // 初始化呼吸练习状态
+    this.resetBreathing();
+  },
+
+  // 初始化呼吸练习状态函数
+  resetBreathing: function () {
+    // 清空动画数据和呼吸提示文本
     this.setData({
-      breathText: ''
+      animationData: {},
+      breathText: '',
+      showInstruction: true,
+      isBreathing: false
     });
-
-    // 开始执行动画
-    this.enlargeAnimation();
   },
 
+  // 启动呼吸练习按钮点击事件处理函数
+  startBreathe: function () {
+    this.setData({
+      showInstruction: false,
+    })
+  },
+  startAnimation: function () {
+    if (!this.data.isBreathing) {
+      this.setData({
+        isBreathing: true
+      });
+      this.enlargeAnimation();
+    }
+  },
   // 放大动画函数
   enlargeAnimation: function () {
     const animation = wx.createAnimation({
-      duration: 2500, // 动画持续时间为2.5秒
-      timingFunction: 'linear', // 线性变化
+      duration: 4000,
+      timingFunction: 'linear',
     });
-
-    // 定义动画过程：从初始大小缩放到指定大小
     animation.scale(2, 2).step();
-
-    // 更新动画数据和呼吸提示文本
     this.setData({
       animationData: animation.export(),
-      breathText: '吸气'
+      breathText: '吸气',
     });
+    let enlargeTimer = setTimeout(() => {
+      this.pauseAnimation();
+    }, 4000);
+    this.setData({
+      enlargeTimer: enlargeTimer
+    })
+  },
 
-    // 设置定时器，2.5秒后执行缩小动画
-    setTimeout(() => {
+  // 暂停动画函数
+  pauseAnimation: function () {
+    const animation = wx.createAnimation({
+      duration: 7000,
+    });
+    animation.scale(2, 2).step();
+    this.setData({
+      animationData: animation.export(),
+      breathText: '屏息',
+    });
+    let pauseTimer = setTimeout(() => {
       this.shrinkAnimation();
-    }, 2500); // 2500毫秒 = 2.5秒
+    }, 7000);
+    this.setData({
+      pauseTimer: pauseTimer
+    })
   },
 
   // 缩小动画函数
   shrinkAnimation: function () {
     const animation = wx.createAnimation({
-      duration: 2500, // 动画持续时间为2.5秒
-      timingFunction: 'linear', // 线性变化
+      duration: 8000,
+      timingFunction: 'linear',
     });
-
-    // 定义动画过程：从指定大小缩小到初始大小
     animation.scale(1, 1).step();
-
-    // 更新动画数据和呼吸提示文本
     this.setData({
       animationData: animation.export(),
       breathText: '呼气'
     });
-
-    // 设置定时器，2.5秒后再次执行放大动画
-    setTimeout(() => {
+    let shrinkTimer = setTimeout(() => {
       this.enlargeAnimation();
-    }, 2500); // 2500毫秒 = 2.5秒
+    }, 8000);
+    this.setData({
+      shrinkTimer: shrinkTimer
+    })
   },
 
-  // 停止动画函数
+  // 停止呼吸练习按钮点击事件处理函数
   stopAnimation: function () {
-    clearTimeout(this.data.animationInterval); // 清除定时器
+    clearTimeout(this.data.enlargeTimer);
+    clearTimeout(this.data.pauseTimer);
+    clearTimeout(this.data.shrinkTimer);
+    const animation = wx.createAnimation({
+      duration: 0, 
+    });
+    animation.scale(1, 1).step();
     this.setData({
-      animationData: {},
-      breathText: '' // 停止时清空呼吸提示文本
+      animationData: animation.export(),
+      breathText: '',
+      isBreathing: false
     });
   }
 });
