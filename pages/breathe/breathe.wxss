@@ -4,7 +4,19 @@
   display: flex;
   justify-content: center;
 }
-.button { 
+
+.textContainer {
+  font-size: 40rpx;
+  text-align: left;
+  margin-top: -180rpx;
+}
+
+.text {
+  margin-inline: 50rpx;
+  margin-bottom: 30rpx;
+}
+
+.button {
   display: inline-block;
   background-color: deepskyblue;
   color: #fff;
@@ -12,12 +24,10 @@
   border-radius: 50rpx;
   padding: 20rpx;
   margin-top: 50rpx;
-  margin-bottom: 100rpx;
   font-size: 30rpx;
   display: flex;
-  justify-content: center; 
-  align-items: center; 
-
+  justify-content: center;
+  align-items: center;
 }
 
 .custom-animation {
@@ -30,30 +40,32 @@
   margin-top: 100rpx;
 }
 
-.button-container {
-  display: flex;
-  margin-top: 300rpx;
-  justify-content: space-between;
-  
-}
 
+.breath-textContainer{
+  height: 60rpx;
+}
 .breath-text {
-  margin-bottom: 50rpx;
   font-size: 60rpx;
   font-weight: bold;
+}
+.button-container {
+  display: flex;
+  margin-top: 250rpx;
+  justify-content: space-between;
 
 }
 .primary {
-padding-inline: 40rpx;
-padding-block: 20rpx;
-border: 1rpx solid #999;
+  padding-inline: 40rpx;
+  padding-block: 20rpx;
+  border: 1rpx solid #999;
   box-shadow: 5rpx 5rpx 8rpx rgb(0, 0, 0, 0.3);
-border-radius: 40rpx;
-color: rgb(37, 180, 2);
-font-size: 30rpx;
-font-weight: bold;
-margin-right:100rpx ;
+  border-radius: 40rpx;
+  color: rgb(37, 180, 2);
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-right: 100rpx;
 }
+
 .warn {
   padding-inline: 40rpx;
   padding-block: 20rpx;
@@ -63,5 +75,5 @@ margin-right:100rpx ;
   color: red;
   font-size: 30rpx;
   font-weight: bold;
-  
-  }
+
+}

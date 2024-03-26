@@ -2,7 +2,19 @@
 
 <!-- 显示说明页面 -->
 <view class="container" wx:if="{{showInstruction}}">
-  <text>这是您的说明文本。</text>
+  <view class="textContainer">
+  <view class="text">4-7-8呼吸法是一种简单而有效的深呼吸技术，旨在帮助人们放松身心、减轻焦虑和压力。这种呼吸法由美国哈佛医学院的心理学家兼行为医学专家Dr. Andrew Weil提出，被广泛应用于心理健康和压力管理领域。</view>
+  <view class="text">练习 4-7-8 式呼吸时，先找一个舒适的地方坐下或躺下。一定要保持良好的姿势，尤其是刚开始练习时。如果您使用该呼吸法入睡，最好是躺着。</view>
+  <view class="text">准备练习时，将舌尖抵住口腔顶部，就在上门牙后面。在整个练习过程中，你需要保持舌头不动。要在呼气时不移动舌头，这需要练习。有些人在进行 4-7-8 式呼吸时，抿着嘴唇呼气会更容易。</view>
+  <view class="text">以下步骤都应在一个呼吸周期内完成：</view>
+  <view class="text">1. 首先，让嘴唇分开。发出嗖嗖的声音、用嘴完全呼气。</view>
+  <view class="text">2. 接下来，闭上双唇，用鼻子默默吸气，同时在脑海中数到四。</view>
+  <view class="text">3. 然后，屏住呼吸七秒钟。</view>
+  <view class="text">4. 再从嘴里嗖嗖地呼气，持续 8 秒钟。</view>
+  <view class="text">当你再次吸气时，就开始了新一轮的呼吸。用这种模式练习四个完整的呼吸。</view>
+  <view class="text">屏住呼吸（7 秒钟）是这一练习中最关键的部分。另外，建议你在刚开始练习 4-7-8 呼吸法时，只练习四次。你可以逐渐练习到八次完整的呼吸。</view>
+  <view class="text">这种呼吸技巧不应该在没有准备好完全放松的情况下练习。虽然它不一定要用于入睡，但仍能让练习者进入深度放松状态。确保在练习呼吸循环后不需要立即保持完全的警觉。</view>
+  </view>
   <button class="button" bindtap="startBreathe">开始呼吸练习</button>
 </view>
 
@@ -11,8 +23,8 @@
   <!-- 自定义动画效果 -->
   <view class="custom-animation" animation="{{ animationData }}"></view>
   <!-- 呼吸提示文本 -->
-  <view class="breath-text">{{ breathText }}</view>
-
+  <view class="breath-textContainer">
+  <view class="breath-text">{{ breathText }}</view></view>
   <view class="button-container">
     <view class="primary" bindtap="startAnimation">开始</view>
     <view class="warn" bindtap="stopAnimation">停止</view>
