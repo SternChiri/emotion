@@ -1,10 +1,16 @@
 <view class="container">
+  <view class="list">
+    <block wx:for="{{musics}}" wx:key="index">
+      <view class="name" bindtap="playMusic" data-id="{{item._id}}">{{item.name}}</view>
+    </block>
+  </view>
+</view>
+<view class="container">
   <view class="music-player">
-    <audio controls src="{{musicUrl}}"></audio>
+    <audio name="{{currentMusic.name}}" author=" " controls></audio>
   </view>
-  <view class="control-panel">
-    <button bindtap="playMusic">播放</button>
-    <button bindtap="pauseMusic">暂停</button>
-    <button bindtap="stopMusic">停止</button>
-  </view>
+</view>
+<view class="button-container">
+<button bindtap="pauseMusic">暂停</button>
+<button bindtap="resumeMusic">继续播放</button>
 </view>
