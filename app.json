@@ -12,7 +12,8 @@
     "pages/massage/massage",
     "pages/anxiety/anxiety",
     "pages/diary/diary",
-    "pages/anxiety/anxietyArticle"
+    "pages/anxiety/anxietyArticle",
+    "pages/massage/massageArticle"
   ],
   "window": {
     "backgroundTextStyle": "light",

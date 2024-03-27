@@ -1,0 +1,10 @@
+<view class="container">
+  <view class="title">{{massageData.title}}</view>
+  <block wx:for="{{massageData.content}}" wx:key="index">
+    <view wx:if="{{item.secTitle !== ''}}"  class="secTitle">{{item.secTitle}}</view>
+    <view wx:for="{{item.para}}" class="para" wx:key="index">{{item}}</view>
+  </block>
+  <view class="line"></view>
+  <navigator class="source" url="{{massageData.source}}">来源：{{massageData.source}}</navigator>
+
+</view>

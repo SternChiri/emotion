@@ -1,29 +1,29 @@
+const db = wx.cloud.database();
 Page({
   data: {
-    urls: [
-      {
-        title: '按摩简介',
-        url: 'https://www.wikipedia.org/wiki/Massage',
-      },
-      {
-        title: '按摩技巧',
-        url: 'https://www.massagetoday.com/articles/massage-techniques',
-      },
-      {
-        title: '按摩益处',
-        url: 'https://www.mayoclinic.org/healthy-lifestyle/adult-health/in-depth/massage/art-20045850',
-      },
-      {
-        title: '按摩类型',
-        url: 'https://www.healthline.com/health/types-of-massage',
-      },
-    ],
+    articles: [], 
+  },
+ 
+  onLoad: function () {
+    this.getArticles();
   },
 
-  onShareAppMessage: function() {
-    return {
-      title: '按摩分享',
-      path: '/pages/massage/massage',
-    };
+  getArticles: function () {
+    db.collection('massageArticle').get({
+      success: res => {
+        this.setData({
+          articles: res.data
+        });
+      },
+      fail: err => {
+        console.error('获取文章数据失败：', err);
+      }
+    });
+  },
+  navigateToMassagePage(event) {
+    const item = event.currentTarget.dataset.item;
+    wx.navigateTo({
+      url: '/pages/massage/massageArticle?id=' + item._id
+    });
   },
 });

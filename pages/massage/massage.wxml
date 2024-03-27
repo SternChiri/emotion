@@ -1,10 +1,8 @@
 <view class="container">
   <view class="list">
-    <block wx:for="{{urls}}" wx:key="index">
-      <view class="item">
-        <a href="{{item.url}}">
-          <text>{{item.title}}</text>
-        </a>
+    <block wx:for="{{articles}}" wx:key="_id">
+      <view class="item" bindtap="navigateToMassagePage" data-item="{{item}}">
+        <view class="title">{{item.title}}</view>
       </view>
     </block>
   </view>

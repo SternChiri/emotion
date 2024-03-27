@@ -1,4 +1,3 @@
-// pages/anxiety/anxietyArticle.js
 const db = wx.cloud.database();
 Page({
 
