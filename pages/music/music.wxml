@@ -5,12 +5,15 @@
     </block>
   </view>
 </view>
-<view class="container">
-  <view class="music-player">
-    <audio name="{{currentMusic.name}}" author=" " controls></audio>
+
+<view class="audio-container">
+  <view class="line"></view>
+  <view class="music-name">正在播放：{{currentMusic.name}}</view>
+  <view class="button-container">
+    <button bindtap="prevMusic">←</button>
+    <button bindtap="pauseMusic">暂停</button>
+    <button bindtap="resumeMusic">继续</button>
+    <button bindtap="nextMusic">→</button>
   </view>
-</view>
-<view class="button-container">
-<button bindtap="pauseMusic">暂停</button>
-<button bindtap="resumeMusic">继续播放</button>
+  
 </view>

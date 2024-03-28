@@ -2,6 +2,7 @@
   <view class="title">{{massageData.title}}</view>
   <block wx:for="{{massageData.content}}" wx:key="index">
     <view wx:if="{{item.secTitle !== ''}}"  class="secTitle">{{item.secTitle}}</view>
+    <image wx:if="{{item.image !== undefined}}" class="image" src="{{item.image}}"></image>
     <view wx:for="{{item.para}}" class="para" wx:key="index">{{item}}</view>
   </block>
   <view class="line"></view>

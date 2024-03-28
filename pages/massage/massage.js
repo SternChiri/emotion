@@ -14,6 +14,7 @@ Page({
         this.setData({
           articles: res.data
         });
+        console.log(articles)
       },
       fail: err => {
         console.error('获取文章数据失败：', err);

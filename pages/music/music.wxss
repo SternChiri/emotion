@@ -5,10 +5,12 @@
   justify-content: center;
   padding: 20px;
 }
+
 .list {
   width: 100%;
   background-color: #f0f0f0;
 }
+
 .name {
   font-size: 42rpx;
   font-weight: bold;
@@ -21,11 +23,37 @@
   border-radius: 20rpx;
   position: relative;
   margin-left: 16rpx;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+.audio-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 92%;
+  background-color: rgb(255, 255, 255);
+}
+.line {
+  border-top: 5rpx solid #ddd;
+  width: 100%;
+
+  margin-bottom: 10rpx;
+}
+.music-name{
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-left: 30rpx;
 }
 .button-container {
   display: flex;
- 
+  flex-direction: row;
   justify-content: space-between;
-
+  align-items: center;
+  /* 垂直居中对齐 */
+  width: 100%;
+  /* 将按钮均匀分布在容器中 */
 }
