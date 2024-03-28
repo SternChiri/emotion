@@ -9,7 +9,7 @@
 .list {
   width: 100%;
   background-color: #f0f0f0;
-  margin-bottom: 100rpx;
+  margin-bottom: 150rpx;
 }
 
 .name {
@@ -31,30 +31,39 @@
 .audio-container {
   display: flex;
   flex-direction: column;
-  margin-left: 30rpx;
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 92%;
-  background-color: rgb(255, 255, 255);
-}
-.line {
-  border-top: 5rpx solid #ddd;
   width: 100%;
+  background: linear-gradient(to top, rgb(57, 205, 255), #ffffff);
+  box-shadow: 0rpx -10rpx 30rpx rgba(0, 0, 0, 0.2);
+}
 
-  margin-bottom: 10rpx;
+.name-container{
+  height: 80rpx;
+  margin-top: 10rpx;
 }
 .music-name{
-  font-size: 30rpx;
+  font-size: 35rpx;
   font-weight: bold;
-  margin-left: 30rpx;
+  margin-left: 40rpx;
 }
 .button-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* 垂直居中对齐 */
-  width: 100%;
-  /* 将按钮均匀分布在容器中 */
+  width: 50%;
+  margin-bottom: 20rpx;
+  transform: translateX(50%);
+}
+.button {
+  height: 50rpx;
+  width: 50rpx;
+  margin-bottom: 20rpx;
+}
+.buttonM {
+  height: 70rpx;
+  width: 70rpx;
+  margin-bottom: 20rpx;
 }

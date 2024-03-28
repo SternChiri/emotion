@@ -1,19 +1,22 @@
 <view class="container">
   <view class="list">
     <block wx:for="{{musics}}" wx:key="index">
-      <view class="name" bindtap="playMusic" data-id="{{item._id}}">{{item.name}}</view>
+      <view class="name" bindtap="playMusic"  data-id="{{item._id}}">{{item.name}}</view>
     </block>
   </view>
 </view>
 
 <view class="audio-container">
-  <view class="line"></view>
-  <view class="music-name">正在播放：{{currentMusic.name}}</view>
-  <view class="button-container">
-    <button bindtap="prevMusic">←</button>
-    <button bindtap="pauseMusic">暂停</button>
-    <button bindtap="resumeMusic">继续</button>
-    <button bindtap="nextMusic">→</button>
+  <view class="name-container">
+  <view class="music-name">{{currentMusic.name}}</view>
   </view>
-  
+  <view class="button-container">
+    <view class="buttonBox" bindtap="prevMusic"><image class="button" src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics/vertical right.png" /></view>
+    <view class="buttonBox" bindtap="togglePlayPause">
+      <image class="buttonM" src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics/pause.png" wx:if="{{currentMusic.isPlaying}}" />
+      <image class="buttonM" src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics/caret-right.png" wx:else />
+    </view>
+    <view class="buttonBox" bindtap="nextMusic"><image class="button" src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics/vertical left.png" /></view>
+  </view>
+
 </view>
