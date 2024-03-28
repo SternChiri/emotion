@@ -8,12 +8,20 @@ Page({
       url: '',
       isPlaying: false
     },
-    currentIndex: 0
+    currentIndex: 0,
+    currentTime: '00:00'
   },
   onLoad: function () {
     this.getMusics();
+    const innerAudioContext = wx.createInnerAudioContext();
+    innerAudioContext.onTimeUpdate(() => {
+      const currentTime = this.formatTime(innerAudioContext.currentTime);
+      this.setData({
+        'currentMusic.currentTime': currentTime
+      });
+    });
     this.setData({
-      innerAudioContext: wx.createInnerAudioContext()
+      innerAudioContext: innerAudioContext
     });
   },
   getMusics: function () {
@@ -28,6 +36,20 @@ Page({
       }
     });
   },
+  formatTime: function (time) {
+    const hours = Math.floor(time / 3600);
+    const minutes = Math.floor((time % 3600) / 60);
+    const seconds = Math.floor(time % 60);
+    const formattedHours = hours.toString().padStart(2, '0');
+    const formattedMinutes = minutes.toString().padStart(2, '0');
+    const formattedSeconds = seconds.toString().padStart(2, '0');
+    
+    if (hours > 0) {
+      return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+    } else {
+      return `${formattedMinutes}:${formattedSeconds}`;
+    }
+  },  
   onUnload: function () {
     const innerAudioContext = this.data.innerAudioContext;
     if (innerAudioContext) {
@@ -48,6 +70,7 @@ Page({
           currentMusic: {
             name: meditation.name,
             url: meditation.musicUrl,
+            time: meditation.time,
             isPlaying: true
           },
           currentIndex: this.data.musics.findIndex(item => item._id === musicId)
@@ -98,6 +121,7 @@ Page({
           currentMusic: {
             name: meditation.name,
             url: meditation.musicUrl,
+            time: meditation.time,
             isPlaying: true
           },
           currentIndex: this.data.musics.findIndex(item => item._id === musicId)

@@ -6,14 +6,26 @@ Page({
     currentMusic: {
       name: '',
       url: '',
-      isPlaying: false
+      isPlaying: false,
+      time: 0
     },
-    currentIndex: 0
+    currentIndex: 0,
+    currentTime: '00:00'
   },
   onLoad: function () {
     this.getMusics();
+    const innerAudioContext = wx.createInnerAudioContext();
+    innerAudioContext.onTimeUpdate(() => {
+      const currentTime = this.formatTime(innerAudioContext.currentTime);
+      this.setData({
+        'currentMusic.currentTime': currentTime
+      });
+    });
+    innerAudioContext.onEnded(() => { // 监听音频播放结束事件
+      this.playMusicById(this.data.currentMusic._id); // 重新播放当前音乐
+    });
     this.setData({
-      innerAudioContext: wx.createInnerAudioContext()
+      innerAudioContext: innerAudioContext
     });
   },
   getMusics: function () {
@@ -27,6 +39,20 @@ Page({
         console.error('获取音乐数据失败：', err);
       }
     });
+  },
+  formatTime: function (time) {
+    const hours = Math.floor(time / 3600);
+    const minutes = Math.floor((time % 3600) / 60);
+    const seconds = Math.floor(time % 60);
+    const formattedHours = hours.toString().padStart(2, '0');
+    const formattedMinutes = minutes.toString().padStart(2, '0');
+    const formattedSeconds = seconds.toString().padStart(2, '0');
+
+    if (hours > 0) {
+      return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+    } else {
+      return `${formattedMinutes}:${formattedSeconds}`;
+    }
   },
   onUnload: function () {
     const innerAudioContext = this.data.innerAudioContext;
@@ -46,8 +72,7 @@ Page({
         innerAudioContext.play();
         this.setData({
           currentMusic: {
-            name: music.name,
-            url: music.musicUrl,
+            ...music, // 将音乐的所有字段复制到 currentMusic 中
             isPlaying: true
           },
           currentIndex: this.data.musics.findIndex(item => item._id === musicId)
@@ -96,8 +121,7 @@ Page({
         innerAudioContext.play();
         this.setData({
           currentMusic: {
-            name: music.name,
-            url: music.musicUrl,
+            ...music, // 将音乐的所有字段复制到 currentMusic 中
             isPlaying: true
           },
           currentIndex: this.data.musics.findIndex(item => item._id === musicId)

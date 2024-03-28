@@ -9,24 +9,41 @@
 .list {
   width: 100%;
   background-color: #f0f0f0;
-  margin-bottom: 150rpx;
+  margin-bottom: 160rpx;
 }
 
 .name {
-  font-size: 42rpx;
-  font-weight: bold;
-  margin-bottom: 30rpx;
   width: 90%;
   padding: 20rpx;
   margin-top: 20rpx;
   margin-bottom: 30rpx;
   background-color: white;
   border-radius: 20rpx;
-  position: relative;
   margin-left: 16rpx;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
+.title {
+  margin-bottom: 40rpx;
+  font-size: 42rpx;
+  font-weight: bold;
+}
+
+.state {
+  font-weight: 28rpx;
+  position: absolute;
+  top: 22rpx;
+  right: 20rpx;
+}
+
+.time {
+  color: #888;
+  font-weight: 28rpx;
+  position: absolute;
+  bottom: 20rpx;
+  right: 20rpx;
+}
 
 .audio-container {
   display: flex;
@@ -35,19 +52,31 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background: linear-gradient(to top, rgb(57, 205, 255), #ffffff);
+  background: linear-gradient(to top, rgb(42, 202, 255), #ffffff);
   box-shadow: 0rpx -10rpx 30rpx rgba(0, 0, 0, 0.2);
 }
 
-.name-container{
+.name-container {
   height: 80rpx;
   margin-top: 10rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-.music-name{
+
+.music-name {
   font-size: 35rpx;
   font-weight: bold;
   margin-left: 40rpx;
+  margin-right: 10rpx;
 }
+
+.timer {
+  font-size: 30rpx;
+  color: #555;
+  margin-right: 30rpx;
+}
+
 .button-container {
   display: flex;
   flex-direction: row;
@@ -57,11 +86,13 @@
   margin-bottom: 20rpx;
   transform: translateX(50%);
 }
+
 .button {
   height: 50rpx;
   width: 50rpx;
   margin-bottom: 20rpx;
 }
+
 .buttonM {
   height: 70rpx;
   width: 70rpx;
