@@ -12,7 +12,7 @@
         </view>
       </picker>
     </view>
-    <block wx:for="{{musics}}" wx:key="index">
+    <block wx:for="{{searchResult}}" wx:key="index">
       <view class="item" bindtap="playMusic" data-id="{{item._id}}">
         <view class="title">{{item.name}}</view>
         <view class="state" wx:if="{{item.name === currentMusic.name}}">🎵</view>
