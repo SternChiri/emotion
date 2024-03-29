@@ -26,7 +26,7 @@ Page({
     });
   },
 
-  // 启动呼吸练习按钮点击事件处理函数
+
   startBreathe: function () {
     this.setData({
       showInstruction: false,

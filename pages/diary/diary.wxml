@@ -2,7 +2,7 @@
 <view class="container">
   <block wx:for="{{processedDiaryList}}" wx:key="index" wx:for-item="item" wx:for-index="idx">
     <view wx:if="{{idx === 0 || item.day !== processedDiaryList[idx - 1].day}}" class="row">
-      <view class="month-box">
+      <view class="month-box" wx:if="{{idx === 0 || item.month !== processedDiaryList[idx - 1].month}}">
         <view wx:if="{{item.month}}" class="month">{{item.month}}</view>
         <view class="yue">月</view>
       </view>
