@@ -6,14 +6,56 @@ Page({
     pauseTimer: null,
     shrinkTimer: null,
     showInstruction: true, // 控制是否显示说明页面
-    isBreathing: false // 控制是否正在进行呼吸练习
+    isBreathing: false, // 控制是否正在进行呼吸练习
+    startTime: null, // 记录开始时间
+    elapsedTime: 0, // 记录经过的时间（秒）
+    timer: null // 计时器对象
   },
 
   // 页面加载时执行的函数
   onLoad: function () {
     // 初始化呼吸练习状态
     this.resetBreathing();
+    this.startTimer(); // 在页面加载时开始计时
   },
+
+  onUnload: function () {
+    this.stopTimerAndPrintResult(); // 在页面卸载时停止计时并打印结果
+  },
+
+  startTimer: function () {
+    this.setData({ startTime: Date.now() }); // 设置开始时间为当前时间
+    // 每秒更新经过的时间
+    this.data.timer = setInterval(() => {
+      const currentTime = Date.now();
+      const elapsedTime = Math.floor((currentTime - this.data.startTime) / 1000); // 将毫秒转换为秒
+      this.setData({ elapsedTime });
+    }, 1000); // 每秒更新一次
+  },
+
+  stopTimerAndPrintResult: function () {
+    clearInterval(this.data.timer); // 停止计时器
+    const elapsedTime = this.data.elapsedTime;
+    // 构造要存储的数据对象
+    const dataToSave = {
+      time: new Date(), 
+      method: '呼吸训练',
+      span: elapsedTime
+    };
+    // 调用云函数保存数据到数据库
+    wx.cloud.callFunction({
+      name: 'saveDataToDatabase',
+      data: {
+        data: dataToSave
+      },
+      success: res => {
+        console.log('数据保存成功', res);
+      },
+      fail: err => {
+        console.error('数据保存失败', err);
+      }
+    });
+  },  
 
   // 初始化呼吸练习状态函数
   resetBreathing: function () {

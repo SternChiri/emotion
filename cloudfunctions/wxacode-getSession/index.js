@@ -25,6 +25,7 @@ exports.main = async (event, context) => {
         data: {
           _openid: OPENID,
           evaData: [],
+          adjData: [],
           diary: []
         }
       });

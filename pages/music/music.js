@@ -18,7 +18,10 @@ Page({
       '白噪音': '#D1B0E5',
       '钢琴': '#FFC08A'
     },
-    searchResult: []
+    searchResult: [],
+    startTime: null, // 记录开始时间
+    elapsedTime: 0, // 记录经过的时间（秒）
+    timer: null
   },
   onLoad: function () {
     this.getMusics();
@@ -35,7 +38,43 @@ Page({
     this.setData({
       innerAudioContext: innerAudioContext
     });
+    this.startTimer(); 
   },
+
+  startTimer: function () {
+    this.setData({ startTime: Date.now() }); 
+    // 每秒更新经过的时间
+    this.data.timer = setInterval(() => {
+      const currentTime = Date.now();
+      const elapsedTime = Math.floor((currentTime - this.data.startTime) / 1000); // 将毫秒转换为秒
+      this.setData({ elapsedTime });
+    }, 1000); // 每秒更新一次
+  },
+
+  stopTimerAndPrintResult: function () {
+    clearInterval(this.data.timer); // 停止计时器
+    const elapsedTime = this.data.elapsedTime;
+    // 构造要存储的数据对象
+    const dataToSave = {
+      time: new Date(), 
+      method: '音乐疗法',
+      span: elapsedTime
+    };
+    // 调用云函数保存数据到数据库
+    wx.cloud.callFunction({
+      name: 'saveDataToDatabase',
+      data: {
+        data: dataToSave
+      },
+      success: res => {
+        console.log('数据保存成功', res);
+      },
+      fail: err => {
+        console.error('数据保存失败', err);
+      }
+    });
+  },  
+
   getMusics: function () {
     db.collection('music').get({
       success: res => {
@@ -80,7 +119,8 @@ Page({
     if (innerAudioContext) {
       innerAudioContext.stop();
       innerAudioContext.destroy();
-    }
+    };
+    this.stopTimerAndPrintResult();
   },
 
   onInputChange: function (event) {

@@ -25,12 +25,12 @@ Page({
       '印度': '#2012AA',
       '自我肯定': '#FFD700',
       '助眠': '#FFB6C1',
-
-
       '克服恐惧': '#FFD9EC',
-
     },
-    searchResult: []
+    searchResult: [],
+    startTime: null, // 记录开始时间
+    elapsedTime: 0, // 记录经过的时间（秒）
+    timer: null
   },
   onLoad: function () {
     this.getMusics();
@@ -42,10 +42,54 @@ Page({
       });
     });
     innerAudioContext.onEnded(() => {
-      this.playMusicById(this.data.currentMusic._id);
+      this.setData({
+        currentMusic: {
+          isPlaying: false,
+          time: 0
+        }
+      })
     });
     this.setData({
       innerAudioContext: innerAudioContext
+    });
+    this.startTimer();
+  },
+
+  startTimer: function () {
+    this.setData({
+      startTime: Date.now()
+    }); // 设置开始时间为当前时间
+    // 每秒更新经过的时间
+    this.data.timer = setInterval(() => {
+      const currentTime = Date.now();
+      const elapsedTime = Math.floor((currentTime - this.data.startTime) / 1000); // 将毫秒转换为秒
+      this.setData({
+        elapsedTime
+      });
+    }, 1000); // 每秒更新一次
+  },
+
+  stopTimerAndPrintResult: function () {
+    clearInterval(this.data.timer); // 停止计时器
+    const elapsedTime = this.data.elapsedTime;
+    // 构造要存储的数据对象
+    const dataToSave = {
+      time: new Date(),
+      method: '正念冥想',
+      span: elapsedTime
+    };
+    // 调用云函数保存数据到数据库
+    wx.cloud.callFunction({
+      name: 'saveDataToDatabase',
+      data: {
+        data: dataToSave
+      },
+      success: res => {
+        console.log('数据保存成功', res);
+      },
+      fail: err => {
+        console.error('数据保存失败', err);
+      }
     });
   },
 
@@ -94,7 +138,8 @@ Page({
     if (innerAudioContext) {
       innerAudioContext.stop();
       innerAudioContext.destroy();
-    }
+    };
+    this.stopTimerAndPrintResult();
   },
 
   onInputChange: function (event) {
@@ -115,7 +160,7 @@ Page({
         noResultMessage: '没有找到你想找的内容哦~请换个词试试！'
       });
     }
-  },  
+  },
 
   // 用户选择类别时触发的事件处理程序
   onTagChange: function (event) {
@@ -141,7 +186,7 @@ Page({
         searchResult: searchResult
       });
     }
-  },  
+  },
 
   playMusic: function (event) {
     const musicId = event.currentTarget.dataset.id;
