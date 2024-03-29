@@ -44,6 +44,7 @@ Page({
       innerAudioContext: innerAudioContext
     });
   },
+
   getMusics: function () {
     wx.cloud.callFunction({
       name: 'getMeditationData',
@@ -97,26 +98,20 @@ Page({
     this.setData({
       noResultMessage: ''
     });
-    db.collection('meditation').where({
-      name: db.RegExp({
-        regexp: searchText,
-        options: 'i'
-      })
-    }).get().then(res => {
-      if (res.data.length > 0) {
-        this.setData({
-          searchResult: res.data
-        });
-      } else {
-        this.setData({
-          searchResult: [],
-          noResultMessage: '没有找到你想找的内容哦~请换个词试试！'
-        });
-      }
-    }).catch(err => {
-      console.error('搜索失败：', err);
+    const searchResult = this.data.musics.filter(music => {
+      return music.name.toLowerCase().includes(searchText.toLowerCase());
     });
-  },
+    if (searchResult.length > 0) {
+      this.setData({
+        searchResult: searchResult
+      });
+    } else {
+      this.setData({
+        searchResult: [],
+        noResultMessage: '没有找到你想找的内容哦~请换个词试试！'
+      });
+    }
+  },  
 
   // 用户选择类别时触发的事件处理程序
   onTagChange: function (event) {
@@ -135,17 +130,14 @@ Page({
         searchResult: this.data.musics
       });
     } else {
-      db.collection('meditation').where({
-        tag: selectedTag
-      }).get().then(res => {
-        this.setData({
-          searchResult: res.data
-        });
-      }).catch(err => {
-        console.error('数据库请求失败：', err); // 输出数据库请求失败的错误信息
+      const searchResult = this.data.musics.filter(music => {
+        return music.tag.includes(selectedTag);
+      });
+      this.setData({
+        searchResult: searchResult
       });
     }
-  },
+  },  
 
   playMusic: function (event) {
     const musicId = event.currentTarget.dataset.id;
