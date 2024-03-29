@@ -10,7 +10,15 @@ Page({
       time: 0
     },
     currentIndex: 0,
-    currentTime: '00:00'
+    currentTime: '00:00',
+    tags: ['全部'],
+    selectedTag: '全部',
+    backgroundColorMap: {
+      '纯音乐': '#A3E1A6',
+      '白噪音': '#D1B0E5',
+      '钢琴': '#FFC08A'
+    },
+    searchResult: []
   },
   onLoad: function () {
     this.getMusics();
@@ -21,8 +29,8 @@ Page({
         'currentMusic.currentTime': currentTime
       });
     });
-    innerAudioContext.onEnded(() => { // 监听音频播放结束事件
-      this.playMusicById(this.data.currentMusic._id); // 重新播放当前音乐
+    innerAudioContext.onEnded(() => { 
+      this.playMusicById(this.data.currentMusic._id); 
     });
     this.setData({
       innerAudioContext: innerAudioContext
@@ -31,9 +39,22 @@ Page({
   getMusics: function () {
     db.collection('music').get({
       success: res => {
-        this.setData({
-          musics: res.data
+        const searchResult = res.data;
+        const tagCountMap = {};
+        searchResult.forEach(item => {
+          item.tag.forEach(tag => {
+            tagCountMap[tag] = (tagCountMap[tag] || 0) + 1;
+          });
         });
+        const tagCountArray = Object.entries(tagCountMap);
+        tagCountArray.sort((a, b) => b[1] - a[1]);
+        const tags = tagCountArray.map(entry => entry[0]);
+        this.setData({
+          searchResult: res.data,
+          musics: searchResult,
+          tags: ['全部', ...tags]
+        });
+        this.filterListByTag('全部');
       },
       fail: err => {
         console.error('获取音乐数据失败：', err);
@@ -61,6 +82,62 @@ Page({
       innerAudioContext.destroy();
     }
   },
+
+  onInputChange: function (event) {
+    const searchText = event.detail.value;
+    this.setData({
+      noResultMessage: ''
+    });
+    db.collection('music').where({
+      name: db.RegExp({
+        regexp: searchText,
+        options: 'i'
+      })
+    }).get().then(res => {
+      if (res.data.length > 0) {
+        this.setData({
+          searchResult: res.data
+        });
+      } else {
+        this.setData({
+          searchResult: [],
+          noResultMessage: '没有找到你想找的内容哦~请换个词试试！'
+        });
+      }
+    }).catch(err => {
+      console.error('搜索失败：', err);
+    });
+  },
+
+  // 用户选择类别时触发的事件处理程序
+  onTagChange: function (event) {
+    const selectedTagIndex = event.detail.value;
+    const selectedTag = this.data.tags[selectedTagIndex];
+    this.setData({
+      selectedTag: selectedTag
+    });
+    this.filterListByTag(selectedTag);
+  },
+
+  // 根据标签筛选列表
+  filterListByTag: function (selectedTag) {
+    if (selectedTag === '全部') {
+      this.setData({
+        searchResult: this.data.musics
+      });
+    } else {
+      db.collection('music').where({
+        tag: selectedTag
+      }).get().then(res => {
+        this.setData({
+          searchResult: res.data
+        });
+      }).catch(err => {
+        console.error('数据库请求失败：', err); // 输出数据库请求失败的错误信息
+      });
+    }
+  },
+
   playMusic: function (event) {
     const musicId = event.currentTarget.dataset.id;
     const music = this.data.musics.find(item => item._id === musicId);

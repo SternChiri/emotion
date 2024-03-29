@@ -6,13 +6,60 @@
   padding: 20px;
 }
 
+.search-bar {
+  display: flex;
+  width:95%;
+  align-items: center;
+  padding: 15rpx;
+  border-radius: 40rpx;
+  box-shadow: 0 0 0 1rpx rgb(112, 112, 112);
+  margin-bottom: 40rpx;
+}
+
+.search-input {
+  flex: 1;
+  font-size: 32rpx;
+  margin-right: 10rpx;
+  margin-left: 15rpx;
+}
+
 .list {
   width: 100%;
   background-color: #f0f0f0;
   margin-bottom: 160rpx;
 }
 
-.name {
+.filter-bar {
+  width: 100%;
+  margin-bottom: 30rpx;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  padding: 18rpx 20rpx;
+  background-color: white;
+  font-size: 28rpx;
+  color: #333;
+  cursor: pointer;
+  position: relative;
+}
+
+.arrow-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 15rpx;
+}
+
+.down {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 20rpx;
+  position: absolute;
+  right: 0;
+}
+
+.item {
   width: 90%;
   padding: 20rpx;
   margin-top: 20rpx;
@@ -25,7 +72,7 @@
 }
 
 .title {
-  margin-bottom: 40rpx;
+  margin-bottom: 15rpx;
   font-size: 42rpx;
   font-weight: bold;
 }
@@ -43,6 +90,19 @@
   position: absolute;
   bottom: 20rpx;
   right: 20rpx;
+}
+
+.tag-line {
+  display: flex;
+  margin-top: 20rpx;
+}
+
+.tag {
+  font-size: 13px;
+  color: rgb(255, 255, 255);
+  margin-right: 10rpx;
+  padding-inline: 7rpx;
+  border-radius: 10rpx;
 }
 
 .audio-container {

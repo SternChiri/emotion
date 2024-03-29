@@ -1,10 +1,27 @@
 <view class="container">
+  <view class="search-bar">
+    <input class="search-input" bindinput="onInputChange" placeholder="请输入你想搜索的内容" />
+  </view>
   <view class="list">
-    <block wx:for="{{musics}}" wx:key="index">
-      <view class="name" bindtap="playMusic" data-id="{{item._id}}">
+    <view class="filter-bar">
+      <picker bindchange="onTagChange" mode="selector" range="{{tags}}" value="{{selectedTagIndex}}">
+        <view class="filter-item">
+          <image src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics/list.svg" class="arrow-icon" />
+          {{selectedTag}}
+          <image src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics/down.svg" class="down" />
+        </view>
+      </picker>
+    </view>
+    <block wx:for="{{searchResult}}" wx:key="index">
+      <view class="item" bindtap="playMusic" data-id="{{item._id}}">
         <view class="title">{{item.name}}</view>
         <view class="state" wx:if="{{item.name === currentMusic.name}}">🎵</view>
         <view class="time">{{item.time}}</view>
+        <view class="tag-line">
+          <view class="tag {{ 'tag-' + item }}" wx:for="{{ item.tag }}" wx:key="index" style="background-color: {{ backgroundColorMap[item] }}">
+            {{ item }}
+          </view>
+        </view>
       </view>
     </block>
   </view>
@@ -13,7 +30,7 @@
 <view class="audio-container">
   <view class="name-container">
     <view class="music-name">{{currentMusic.name}}</view>
-    <view class="timer" wx:if="{{currentMusic.currentTime}}" >{{currentMusic.currentTime}}/{{currentMusic.time}}</view>
+    <view class="timer" wx:if="{{currentMusic.currentTime}}">{{currentMusic.currentTime}}/{{currentMusic.time}}</view>
   </view>
   <view class="button-container">
     <view class="buttonBox" bindtap="prevMusic">
