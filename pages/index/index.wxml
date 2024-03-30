@@ -50,14 +50,14 @@
       <view class="article-detail">{{item.detail}}</view>
     </view>
   </view>
-  <cover-view class="overlay" wx:if="{{ showWindow }}" bindtap="closeWindow"> </cover-view>
-  <cover-view class="window-content" wx:if="{{showWindow}}" wx:for="{{contentList}}" wx:key="_id">
-    <cover-image class="article-head-image" src="{{item.headImage}}"></cover-image>
-    <cover-view class="article-title">{{item.title}}</cover-view>
-    <cover-view class="article-content" wx:for="{{item.content}}" wx:key="index">{{item}}
+  <view class="overlay" wx:if="{{ showWindow }}" bindtap="closeWindow"> </view>
+  <view class="window-content" wx:if="{{showWindow}}" wx:for="{{contentList}}" wx:key="_id">
+    <image class="article-head-image" src="{{item.headImage}}"></image>
+    <view class="article-title">{{item.title}}</view>
+    <view class="article-content" wx:for="{{item.content}}" wx:key="index">{{item}}
 
-    </cover-view>
-  </cover-view>
+    </view>
+  </view>
 
   <view class="line"></view>
 

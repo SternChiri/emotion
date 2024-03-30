@@ -125,7 +125,7 @@
 }
 
 .float-content {
-  height: 800rpx;
+  height: 780rpx;
   display: block;
   overflow-y: scroll;
 }
@@ -141,6 +141,13 @@
   font-size: 32rpx;
   margin-top: 30rpx;
   margin-bottom: 50rpx;
+  z-index: 3;
+}
+
+.recordTitle {
+  font-size: 32rpx;
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
   z-index: 3;
 }
 
