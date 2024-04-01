@@ -1,4 +1,15 @@
 /* pages/diary/diary.wxss */
+.intro {
+  margin-top: 50rpx;
+  padding: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  font-size: 30rpx;
+  white-space: pre-line;
+}
+
 .container {
   padding: 20rpx;
   display: grid;

@@ -1,5 +1,8 @@
 <!--pages/diary/diary.wxml-->
-<view class="container">
+<view class="intro" wx:if="{{processedDiaryList === []}}">还没有记录哦(●'◡'●)
+
+↖去首页写下你的第一篇心情日记吧o(*￣▽￣*)ブ</view>
+<view class="container" wx:else>
   <block wx:for="{{processedDiaryList}}" wx:key="index" wx:for-item="item" wx:for-index="idx">
     <view wx:if="{{idx === 0 || item.day !== processedDiaryList[idx - 1].day}}" class="row">
       <view class="month-box" wx:if="{{idx === 0 || item.month !== processedDiaryList[idx - 1].month}}">

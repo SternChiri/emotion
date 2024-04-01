@@ -286,6 +286,18 @@ Page({
     });
     this.checkDiaryExistence();
     this.closeFloatWindow();
+  },
+
+  onShareAppMessage() {
+    return {
+      title: '你今天心情如何？',
+      path: '/pages/index/index',
+    }
+  },
+  onShareTimeline() {
+    return {
+      title: '你今天心情如何？'
+    }
   }
 });
 

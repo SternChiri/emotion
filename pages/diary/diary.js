@@ -22,7 +22,6 @@ Page({
           processedDiaryList,
           renderData: true,
         });
-        console.log(diaryList);
       },
       fail: err => {
         console.error('获取 diary 数组失败', err);
@@ -62,4 +61,16 @@ Page({
 
     return processedData;
   },
+
+  onShareAppMessage() {
+    return {
+      title: '来，和我一起记录心情~',
+      path: '/pages/index/index',
+    }
+  },
+  onShareTimeline() {
+    return {
+      title: '来，和我一起记录心情~'
+    }
+  }
 });
