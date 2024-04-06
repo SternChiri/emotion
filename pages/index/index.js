@@ -317,7 +317,7 @@ Page({
 
     const index = (value1 + 4) * 9 + (value2 + 4);
     const polar = this.cartesianToPolar(value1, value2)
-    const color = this.polarToColor(polar.r,polar.theta);
+    const color = this.polarToColor(polar.r, polar.theta);
     const colors = this.data.colors;
     colors[index] = color;
     this.setData({
@@ -334,14 +334,14 @@ Page({
       theta: degrees
     };
   },
-  
+
   polarToColor: function (r, theta) {
     const opacity = r / (4 * Math.sqrt(2));
-    let hue = ((theta % 360) + 360) % 360; 
+    let hue = ((theta % 360) + 360) % 360;
     if (theta + (180 % 360) === 180) {
-      hue = (hue + 180) % 360; 
+      hue = (hue + 180) % 360;
     }
-    const rgbColor = this.hsvToRgb(hue, 0.8, 0.8); 
+    const rgbColor = this.hsvToRgb(hue, 0.8, 0.8);
     const color = `rgba(${rgbColor[0]}, ${rgbColor[1]}, ${rgbColor[2]}, ${opacity})`;
     return color;
   },
@@ -381,7 +381,8 @@ Page({
   },
   componentToHex: function (c) {
     const hex = c.toString(16);
-    return hex.length == 1 ? '0' + hex : hex;},
+    return hex.length == 1 ? '0' + hex : hex;
+  },
   onShareAppMessage() {
     return {
       title: '你今天心情如何？',
@@ -393,7 +394,6 @@ Page({
       title: '你今天心情如何？'
     }
   }
-
 });
 
 function getTodayDate() {
