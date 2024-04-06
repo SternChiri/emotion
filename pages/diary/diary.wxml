@@ -1,7 +1,7 @@
 <!--pages/diary/diary.wxml-->
 <view class="intro" wx:if="{{processedDiaryList === []}}">还没有记录哦(●'◡'●)
 
-↖去首页写下你的第一篇心情日记吧o(*￣▽￣*)ブ</view>
+  ↖去首页写下你的第一篇心情日记吧o(*￣▽￣*)ブ</view>
 <view class="container" wx:else>
   <block wx:for="{{processedDiaryList}}" wx:key="index" wx:for-item="item" wx:for-index="idx">
     <view wx:if="{{idx === 0 || item.day !== processedDiaryList[idx - 1].day}}" class="row">
@@ -12,7 +12,11 @@
       <view wx:if="{{idx === 0 || item.year !== processedDiaryList[idx - 1].year}}" class="year">{{item.year}}</view>
     </view>
     <view class="diary-item">
-      <view wx:if="{{idx === 0 || item.day !== processedDiaryList[idx - 1].day}}" class="day">{{item.day}}</view>
+      <view wx:if="{{idx === 0 || item.day !== processedDiaryList[idx - 1].day}}" class="day">
+      <view class="ri">
+      {{item.day}}</view>
+      <view class="week">{{item.dayOfWeek}}</view>
+      </view>
       <view wx:else class="day-placeholder"></view>
       <view class="diary-content">
         <view class="time">{{item.time}}</view>
@@ -21,7 +25,7 @@
             <view class="emo-word">{{item}}</view>
           </block>
         </view>
-        <view wx:if="{{item.idea}}" class="idea">"{{item.idea}}"</view>
+        <text wx:if="{{item.idea}}" class="idea">{{item.idea}}</text>
       </view>
     </view>
   </block>

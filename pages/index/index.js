@@ -7,7 +7,9 @@ Page({
     todayDate: getTodayDate(),
     showWindow: false,
     showFloatWindow: false,
+    showInformedWindow: false,
     contentList: [],
+    windowItem: {},
     quoteRecord: {},
     selectedValue1: 0,
     selectedValue2: 0,
@@ -54,6 +56,17 @@ Page({
   },
 
   onLoad: function () {
+    const openid = wx.getStorageSync('openid') || false;
+    if (openid) {
+      this.setData({
+        showInformedWindow: false,
+      })
+    } else {
+      this.setData({
+        showInformedWindow: true,
+      })
+    };
+
     // 查询集合总记录数
     db.collection('quote').count().then(res => {
       // 生成随机数
@@ -127,9 +140,11 @@ Page({
     });
   },
 
-  openWindow() {
+  openWindow(event) {
+    const item = event.currentTarget.dataset.item;
     this.setData({
       showWindow: true,
+      windowItem: item,
     });
   },
   closeWindow() {
@@ -151,6 +166,12 @@ Page({
     this.setData({
       showFloatWindow: false,
       selectedMeaning: []
+    });
+  },
+
+  closeInformedWindow() {
+    this.setData({
+      showInformedWindow: false
     });
   },
 

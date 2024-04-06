@@ -43,6 +43,11 @@ Page({
       const hours = itemTime.getHours().toString().padStart(2, '0');
       const minutes = itemTime.getMinutes().toString().padStart(2, '0');
       const time = `${hours}:${minutes}`;
+
+      // 获取星期几并转换为文字表示
+      const dayOfWeek = ['日', '一', '二', '三', '四', '五', '六'][itemTime.getDay()];
+      const dayOfWeekText = `周${dayOfWeek}`;
+
       if (year !== currentYear) {
         currentYear = year;
         currentMonth = null;
@@ -55,6 +60,7 @@ Page({
         year: currentYear,
         month: `${currentMonth}`,
         day: `${day}`,
+        dayOfWeek: dayOfWeekText,
         time,
       });
     }
