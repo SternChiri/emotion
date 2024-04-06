@@ -5,13 +5,12 @@
 }
 
 .mood-card {
-  background-color: rgb(255, 255, 255);
   width: 92%;
   height: 350rpx;
   border-radius: 20rpx;
   padding: 20rpx;
   margin-bottom: 20rpx;
-  border: 3rpx solid #ddd;
+  border: 3rpx solid rgb(221, 221, 221);
   box-shadow: 0rpx 4rpx 8rpx rgba(0, 0, 0, 0.1);
   position: relative;
 }
@@ -46,7 +45,7 @@
 
 .mood-emoWord {
   font-size: 80rpx;
-  color: #a1a1a17c;
+  color: #4444447c;
   font-weight: bold;
   position: absolute;
   bottom: 20rpx;

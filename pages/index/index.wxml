@@ -2,7 +2,7 @@
 
 <view class="container">
   <!-- 心情日记 -->
-  <view class="mood-card">
+  <view class="mood-card" style="background-image: linear-gradient(to top, {{colors[index]}}, #ffffff);">
     <view class="date">{{todayDate}}</view>
     <image class="detail-btn" src="cloud://emotion-7gazfr5v6f07338a.656d-emotion-7gazfr5v6f07338a-1324897039/pics/right.svg" bindtap="goToDiary" />
     <view class="mood-write" bindtap="openFloatWindow" wx:if="{{!isDiaryExist}}">

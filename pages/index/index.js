@@ -13,6 +13,7 @@ Page({
     selectedValue2: 0,
     selectedWord1: '中立',
     selectedWord2: '中立',
+    colors: [],
     meanings: [
       "绝望", "冷漠", "麻木", "消沉", "憔悴", "担忧", "痛苦", "悲痛", "癫狂",
       "抑郁", "压抑", "悲伤", "沉重", "厌烦", "生气", "愤怒", "暴怒", "狂怒",
@@ -105,11 +106,14 @@ Page({
               latestDiary: latestDiary,
               isDiaryExist: true
             });
+            this.judgeColor(latestDiary.coordinate[0], latestDiary.coordinate[1])
+
           } else {
             this.setData({
               isDiaryExist: false
             });
           }
+
         } else {
           this.setData({
             isDiaryExist: false
@@ -286,11 +290,81 @@ Page({
     });
     this.checkDiaryExistence();
     this.closeFloatWindow();
+  },
+
+  judgeColor: function (value1, value2) {
+
+    const index = (value1 + 4) * 9 + (value2 + 4);
+    const polar = this.cartesianToPolar(value1, value2)
+    const color = this.polarToColor(polar.r,polar.theta);
+    const colors = this.data.colors;
+    colors[index] = color;
+    this.setData({
+      colors: colors,
+      index: index
+    });
+  },
+  cartesianToPolar: function (x, y) {
+    const r = Math.sqrt(x * x + y * y);
+    let theta = Math.atan2(y, x);
+    const degrees = (theta * (180 / Math.PI)).toFixed(2);
+    return {
+      r: r.toFixed(2),
+      theta: degrees
+    };
+  },
+  
+  polarToColor: function (r, theta) {
+    const opacity = r / (4 * Math.sqrt(2));
+    let hue = ((theta % 360) + 360) % 360; 
+    if (theta + (180 % 360) === 180) {
+      hue = (hue + 180) % 360; 
+    }
+    const rgbColor = this.hsvToRgb(hue, 0.8, 0.8); 
+    const color = `rgba(${rgbColor[0]}, ${rgbColor[1]}, ${rgbColor[2]}, ${opacity})`;
+    return color;
+  },
+  hsvToRgb: function (h, s, v) {
+    let r, g, b;
+    const c = v * s;
+    const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
+    const m = v - c;
+
+    if (h >= 0 && h < 60) {
+      r = c;
+      g = x;
+      b = 0;
+    } else if (h >= 60 && h < 120) {
+      r = x;
+      g = c;
+      b = 0;
+    } else if (h >= 120 && h < 180) {
+      r = 0;
+      g = c;
+      b = x;
+    } else if (h >= 180 && h < 240) {
+      r = 0;
+      g = x;
+      b = c;
+    } else if (h >= 240 && h < 300) {
+      r = x;
+      g = 0;
+      b = c;
+    } else {
+      r = c;
+      g = 0;
+      b = x;
+    }
+
+    return [Math.round((r + m) * 255), Math.round((g + m) * 255), Math.round((b + m) * 255)];
+  },
+  componentToHex: function (c) {
+    const hex = c.toString(16);
+    return hex.length == 1 ? '0' + hex : hex;
   }
+
 });
 
-
-// 获取今天的日期，包括月、日、星期
 function getTodayDate() {
   const now = new Date();
   const month = now.getMonth() + 1;
