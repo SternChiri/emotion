@@ -93,10 +93,11 @@
 }
 
 .tag {
-  font-size: 13px;
+  font-size: 12px;
   color: rgb(255, 255, 255);
   margin-right: 10rpx;
-  padding-inline: 7rpx;
+  padding-inline: 8rpx;
+  padding-block: 1rpx;
   border-radius: 10rpx;
 }
 
@@ -125,7 +126,7 @@
 }
 
 .float-content {
-  height: 800rpx;
+  height: 780rpx;
   display: block;
   overflow-y: scroll;
 }
@@ -141,6 +142,13 @@
   font-size: 32rpx;
   margin-top: 30rpx;
   margin-bottom: 50rpx;
+  z-index: 3;
+}
+
+.recordTitle {
+  font-size: 32rpx;
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
   z-index: 3;
 }
 

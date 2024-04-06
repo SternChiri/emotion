@@ -38,7 +38,6 @@ Page({
     const elapsedTime = this.data.elapsedTime;
     // 构造要存储的数据对象
     const dataToSave = {
-      time: new Date(), 
       method: '呼吸训练',
       span: elapsedTime
     };

@@ -56,7 +56,6 @@ Page({
     const elapsedTime = this.data.elapsedTime;
     // 构造要存储的数据对象
     const dataToSave = {
-      time: new Date(), 
       method: '音乐疗法',
       span: elapsedTime
     };

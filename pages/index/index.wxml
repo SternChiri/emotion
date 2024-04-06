@@ -12,7 +12,8 @@
     </view>
     <view class="mood-display" bindtap="goToDiary" wx:else>
       <view class="mood-content">
-        <view class="mood-text" hidden="{{latestDiary.idea === ''}}">“{{latestDiary.idea}}</view><view class="mood-text" hidden="{{latestDiary.idea === ''}}">”</view>
+        <view class="mood-text" hidden="{{latestDiary.idea === ''}}">“{{latestDiary.idea}}</view>
+        <view class="mood-text" hidden="{{latestDiary.idea === ''}}">”</view>
         <view class="mood-emoWord">{{latestDiary.emoWords.length > 2 ? latestDiary.emoWords[0] + "," + latestDiary.emoWords[1] + "..." : latestDiary.emoWords}}</view>
       </view>
     </view>
@@ -43,21 +44,23 @@
   </view>
 
   <!--科普文章-->
-  <view class="article-card" wx:for="{{contentList}}" wx:key="_id" bindtap="openWindow">
-    <image class="article-image" src="{{item.cover}}"></image>
-    <view class="article-info">
-      <view class="article-name">{{item.title}}</view>
-      <view class="article-detail">{{item.detail}}</view>
+  <block class="article-list" wx:for="{{contentList}}" wx:key="_id">
+    <view class="article-card" bindtap="openWindow" data-item="{{item}}">
+      <image class="article-image" src="{{item.cover}}"></image>
+      <view class="article-info">
+        <view class="article-name">{{item.title}}</view>
+        <view class="article-detail">{{item.detail}}</view>
+      </view>
+    </view>
+  </block>
+  <view class="overlay" wx:if="{{ showWindow }}" bindtap="closeWindow"> </view>
+  <view class="window-content" wx:if="{{showWindow}}">
+    <image class="article-head-image" src="{{windowItem.headImage}}"></image>
+    <view class="article-title">{{windowItem.title}}</view>
+    <view class="article-content" wx:for="{{windowItem.content}}" wx:key="index">{{item}}
+
     </view>
   </view>
-  <cover-view class="overlay" wx:if="{{ showWindow }}" bindtap="closeWindow"> </cover-view>
-  <cover-view class="window-content" wx:if="{{showWindow}}" wx:for="{{contentList}}" wx:key="_id">
-    <cover-image class="article-head-image" src="{{item.headImage}}"></cover-image>
-    <cover-view class="article-title">{{item.title}}</cover-view>
-    <cover-view class="article-content" wx:for="{{item.content}}" wx:key="index">{{item}}
-
-    </cover-view>
-  </cover-view>
 
   <view class="line"></view>
 
@@ -98,5 +101,15 @@
       <textarea class="input-mood" placeholder="在这里记录你此刻所想..." value="{{moodInputValue}}" bindinput="handleInput"></textarea>
     </view>
     <button class="submit-button" bindtap="handleSubmit">记录</button>
+  </view>
+
+  <!-- 知情同意悬浮窗 -->
+  <view wx:if="{{showInformedWindow}}" class="float-mask"></view>
+  <view class="float-window" wx:if="{{ showInformedWindow }}">
+    <view class="article-title">{{contentList[1].title}}</view>
+    <view class="article-content" wx:for="{{contentList[1].content}}" wx:key="index">{{item}}
+
+    </view>
+    <button class="submit-button" bindtap="closeInformedWindow">同意并进入</button>
   </view>
 </view>

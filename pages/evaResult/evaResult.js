@@ -68,8 +68,18 @@ Page({
     });
   },
 
-  //用户点击右上角分享
   onShareAppMessage() {
-
+    const scaleId = this.data.scaleId;
+    const score = this.data.score;
+    const score_1 = this.data.score_1;
+    return {
+      title: '我的心理测评结果',
+      path: '/pages/evaResult/evaResult?id=' + scaleId + '&score=' + score + '&score_1=' + score_1,
+    };
+  },  
+  onShareTimeline() {
+    return {
+      title: '了解你自己。'
+    }
   }
 })

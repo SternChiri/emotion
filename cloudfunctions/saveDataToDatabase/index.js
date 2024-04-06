@@ -12,6 +12,9 @@ exports.main = async (event, context) => {
 
   try {
     const openid = cloud.getWXContext().OPENID;
+    const currentTime = new Date();
+    data.time = currentTime;
+    
     // 在 user 集合中查找并更新对应 openid 的记录，如果不存在则新建一条记录
     const result = await db.collection('user').where({
       _openid: openid

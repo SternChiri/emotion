@@ -223,7 +223,7 @@ Page({
       score_1: score_1
     });
     this.showNextItem();
-  },
+  }
 });
 
 async function updateUserRecord(openid, scaleId, scaleTitle, score, score_1) {

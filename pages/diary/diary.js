@@ -22,7 +22,6 @@ Page({
           processedDiaryList,
           renderData: true,
         });
-        console.log(diaryList);
       },
       fail: err => {
         console.error('获取 diary 数组失败', err);
@@ -44,6 +43,11 @@ Page({
       const hours = itemTime.getHours().toString().padStart(2, '0');
       const minutes = itemTime.getMinutes().toString().padStart(2, '0');
       const time = `${hours}:${minutes}`;
+
+      // 获取星期几并转换为文字表示
+      const dayOfWeek = ['日', '一', '二', '三', '四', '五', '六'][itemTime.getDay()];
+      const dayOfWeekText = `周${dayOfWeek}`;
+
       if (year !== currentYear) {
         currentYear = year;
         currentMonth = null;
@@ -56,10 +60,23 @@ Page({
         year: currentYear,
         month: `${currentMonth}`,
         day: `${day}`,
+        dayOfWeek: dayOfWeekText,
         time,
       });
     }
 
     return processedData;
   },
+
+  onShareAppMessage() {
+    return {
+      title: '来，和我一起记录心情~',
+      path: '/pages/index/index',
+    }
+  },
+  onShareTimeline() {
+    return {
+      title: '来，和我一起记录心情~'
+    }
+  }
 });

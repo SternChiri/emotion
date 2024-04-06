@@ -7,7 +7,9 @@ Page({
     todayDate: getTodayDate(),
     showWindow: false,
     showFloatWindow: false,
+    showInformedWindow: false,
     contentList: [],
+    windowItem: {},
     quoteRecord: {},
     selectedValue1: 0,
     selectedValue2: 0,
@@ -55,6 +57,17 @@ Page({
   },
 
   onLoad: function () {
+    const openid = wx.getStorageSync('openid') || false;
+    if (openid) {
+      this.setData({
+        showInformedWindow: false,
+      })
+    } else {
+      this.setData({
+        showInformedWindow: true,
+      })
+    };
+
     // 查询集合总记录数
     db.collection('quote').count().then(res => {
       // 生成随机数
@@ -131,9 +144,11 @@ Page({
     });
   },
 
-  openWindow() {
+  openWindow(event) {
+    const item = event.currentTarget.dataset.item;
     this.setData({
       showWindow: true,
+      windowItem: item,
     });
   },
   closeWindow() {
@@ -155,6 +170,12 @@ Page({
     this.setData({
       showFloatWindow: false,
       selectedMeaning: []
+    });
+  },
+
+  closeInformedWindow() {
+    this.setData({
+      showInformedWindow: false
     });
   },
 
@@ -296,7 +317,7 @@ Page({
 
     const index = (value1 + 4) * 9 + (value2 + 4);
     const polar = this.cartesianToPolar(value1, value2)
-    const color = this.polarToColor(polar.r,polar.theta);
+    const color = this.polarToColor(polar.r, polar.theta);
     const colors = this.data.colors;
     colors[index] = color;
     this.setData({
@@ -313,14 +334,14 @@ Page({
       theta: degrees
     };
   },
-  
+
   polarToColor: function (r, theta) {
     const opacity = r / (4 * Math.sqrt(2));
-    let hue = ((theta % 360) + 360) % 360; 
+    let hue = ((theta % 360) + 360) % 360;
     if (theta + (180 % 360) === 180) {
-      hue = (hue + 180) % 360; 
+      hue = (hue + 180) % 360;
     }
-    const rgbColor = this.hsvToRgb(hue, 0.8, 0.8); 
+    const rgbColor = this.hsvToRgb(hue, 0.8, 0.8);
     const color = `rgba(${rgbColor[0]}, ${rgbColor[1]}, ${rgbColor[2]}, ${opacity})`;
     return color;
   },
@@ -361,8 +382,18 @@ Page({
   componentToHex: function (c) {
     const hex = c.toString(16);
     return hex.length == 1 ? '0' + hex : hex;
+  },
+  onShareAppMessage() {
+    return {
+      title: '你今天心情如何？',
+      path: '/pages/index/index',
+    }
+  },
+  onShareTimeline() {
+    return {
+      title: '你今天心情如何？'
+    }
   }
-
 });
 
 function getTodayDate() {
