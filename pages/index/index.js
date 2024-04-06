@@ -379,10 +379,6 @@ Page({
 
     return [Math.round((r + m) * 255), Math.round((g + m) * 255), Math.round((b + m) * 255)];
   },
-  componentToHex: function (c) {
-    const hex = c.toString(16);
-    return hex.length == 1 ? '0' + hex : hex;
-  },
   onShareAppMessage() {
     return {
       title: '你今天心情如何？',
