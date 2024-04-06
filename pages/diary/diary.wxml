@@ -22,7 +22,7 @@
         <view class="time">{{item.time}}</view>
         <view class="emo-words">
           <block wx:for="{{item.emoWords}}" wx:key="index">
-            <view class="emo-word">{{item}}</view>
+            <view class="emo-word" style="background-color: {{processedDiaryList[idx].color}};">{{item}}</view>
           </block>
         </view>
         <text wx:if="{{item.idea}}" class="idea">{{item.idea}}</text>

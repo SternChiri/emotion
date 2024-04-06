@@ -328,7 +328,7 @@ Page({
   cartesianToPolar: function (x, y) {
     const r = Math.sqrt(x * x + y * y);
     let theta = Math.atan2(y, x);
-    const degrees = (theta * (180 / Math.PI)).toFixed(2);
+    const degrees = (theta * (180 / Math.PI) - 45).toFixed(2);
     return {
       r: r.toFixed(2),
       theta: degrees
