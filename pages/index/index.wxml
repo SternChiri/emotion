@@ -58,7 +58,6 @@
     <image class="article-head-image" src="{{windowItem.headImage}}"></image>
     <view class="article-title">{{windowItem.title}}</view>
     <view class="article-content" wx:for="{{windowItem.content}}" wx:key="index">{{item}}
-
     </view>
   </view>
 
@@ -108,8 +107,8 @@
   <view class="float-window" wx:if="{{ showInformedWindow }}">
     <view class="article-title">{{contentList[1].title}}</view>
     <view class="article-content" wx:for="{{contentList[1].content}}" wx:key="index">{{item}}
-
     </view>
-    <button class="submit-button" bindtap="closeInformedWindow">同意并进入</button>
+    <view class="article-content">如您同意以上内容，请点击下面按钮确认。</view>
+    <button class="consent-button" bindtap="closeInformedWindow">同意并进入</button>
   </view>
 </view>

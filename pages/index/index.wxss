@@ -216,6 +216,7 @@
   white-space: pre-line;
   margin-left: 30rpx;
   margin-right: 30rpx;
+  margin-bottom: 30rpx;
 }
 
 .logo {
@@ -366,6 +367,17 @@
   bottom: 70rpx;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.consent-button {
+  background-color: #42a5f5;
+  color: #ffffff;
+  border: none;
+  padding: 20rpx 20rpx;
+  border-radius: 25rpx;
+  font-size: 35rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
 }
 
 .line {
