@@ -336,7 +336,7 @@ Page({
   },
 
   polarToColor: function (r, theta) {
-    const opacity = r / (4 * Math.sqrt(2));
+    const opacity = r / (4 * Math.sqrt(2)) * 0.5;
     let hue = ((theta % 360) + 360) % 360;
     if (theta + (180 % 360) === 180) {
       hue = (hue + 180) % 360;
