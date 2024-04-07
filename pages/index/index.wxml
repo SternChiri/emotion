@@ -105,9 +105,18 @@
   <!-- 知情同意悬浮窗 -->
   <view wx:if="{{showInformedWindow}}" class="float-mask"></view>
   <view class="float-window" wx:if="{{ showInformedWindow }}">
-    <view class="article-title">{{contentList[1].title}}</view>
-    <view class="article-content" wx:for="{{contentList[1].content}}" wx:key="index">{{item}}
-    </view>
+    <view class="article-title">知情同意</view>
+    <view class="article-content">欢迎您使用“与情绪共舞”——您的日常情绪训练掌上工具。这是一款旨在日常调节、管理情绪的小程序，提供心情日记、心理测评、情绪调适等功能。</view>
+    <view class="article-content">当您使用本小程序时，我们会储存以下信息：</view>
+    <view class="article-content">-	您的心情日记内容</view>
+    <view class="article-content">-	您的心理测评结果</view>
+    <view class="article-content">-	您使用情绪调适功能的情况</view>
+    <view class="article-content">所有记录均为匿名化数据，确保无法关联到特定个人。请放心，我们不会收集您的姓名、手机号等身份相关的隐私信息。</view>
+    <view class="article-content">我们收集的所有数据仅用于：</view>
+    <view class="article-content">-	改进产品功能</view>
+    <view class="article-content">-	学术研究</view>
+    <view class="article-content">我们严格遵循保密原则，未经您的允许，不会向任何第三方透露您的任何数据。</view>
+    <view class="article-content">感谢您为心理学研究做出的贡献！</view>
     <view class="article-content">如您同意以上内容，请点击下面按钮确认。</view>
     <button class="consent-button" bindtap="closeInformedWindow">同意并进入</button>
   </view>
